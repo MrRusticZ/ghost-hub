@@ -1,5 +1,11 @@
 # Ghost Hub assets and source policy
 
+## Equipment reference images (15 September 2026)
+
+The equipment library bundles 64 credited WebP references: all 63 equipment tiers and an equipment-wall overview. `src/hub/equipment-media.json` records source pages, original and delivered URLs, uploader, upload date, dimensions, byte counts and SHA-256 hashes. These unmodified game-reference images total 1,453,832 bytes and are served locally for reliable loading and offline availability.
+
+Game imagery belongs to Kinetic Games. Uploader credit does not imply an open licence; these limited identification and commentary illustrations are excluded from source-code licensing. The image viewer links individual file-page credits and shows upload dates. Current article assignments determine tier identity where old source filenames differ. See [the equipment research and validation record](docs/equipment-upgrade.md).
+
 ## Cursed possession reference media (14 September 2026)
 
 The cursed collection bundles 30 credited game-reference assets: seven object photographs, ten tarot faces, seven map-specific location examples, two broken-object photographs, and four silent gameplay animations. `src/hub/cursed-media.json` records the source file page, original URL, delivered URL, uploader, source upload date, dimensions, byte count, SHA-256 and animation status for every file in `src/hub/assets/cursed/`.

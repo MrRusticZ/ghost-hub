@@ -2,19 +2,13 @@ import {useChapterState} from './chapterState';
 import { useState } from 'react';
 import { ArrowLeft,ArrowRight,ArrowUpRight,BookOpen,Check,Clock,Layers,MapPin,Plus,Search,ShieldCheck,Trash2 } from 'lucide-react';
 import { Link,useHub } from './context';
-import { EQUIPMENT,GUIDES,MAPS } from './content';
-import { Empty,Notice,PageHeading,SourceLink,icons } from './ui';
+import { GUIDES,MAPS } from './content';
+import { Empty,Notice,PageHeading,SourceLink } from './ui';
 import { readValue,writeValue } from './storage';
 import { z } from 'zod';
 
 export {GhostLibrary} from './GhostEncyclopedia';
-export function Equipment({id}:{id?:string}){
- const [query,setQuery]=useChapterState('Equipment-query',''),[category,setCategory]=useChapterState('Equipment-category','All');const item=EQUIPMENT.find(e=>e.id===id);
- if(id&&!item)return <Empty title="Equipment not found">Return to the equipment library.</Empty>;
- if(item){const Icon=icons[item.icon as keyof typeof icons];return <><Link to="equipment" className="back-link"><ArrowLeft size={15}/>Equipment library</Link><PageHeading eyebrow={'EQUIPMENT / '+item.category.toUpperCase()} title={item.name} description={item.summary} action={<div className="equipment-emblem"><Icon size={56} strokeWidth={1}/></div>}/><div className="two-columns"><section className="panel prose"><h2>In the field</h2><ol>{item.steps.map(s=><li key={s}>{s}</li>)}</ol><Notice>{item.caution}</Notice><Link to="evidence" className="button primary">Use in your investigation<ArrowRight size={16}/></Link></section><section className="panel"><h2>Tier overview</h2>{item.tiers.map((t,i)=><div className="tier-row" key={t}><span className="tier-number">{['I','II','III'][i]}</span><p>{t}</p></div>)}<p className="small muted">A practical overview. Consult the reference for exact ranges and current upgrade values.</p><SourceLink url={'https://phasmophobia.fandom.com/wiki/'+item.wiki}/></section></div></>;}
- const matching=EQUIPMENT.filter(e=>(category==='All'||e.category===category)&&(e.name+' '+e.summary).toLowerCase().includes(query.toLowerCase()));
- return <><PageHeading eyebrow="EXPLORE / KNOW YOUR KIT" title="Equipment library" description="The right tool is only useful when you know what its result means."/><div className="search-toolbar"><div className="input-icon"><Search size={17}/><input placeholder="Search equipment..." aria-label="Search equipment" value={query} onChange={e=>setQuery(e.target.value)}/></div><div className="chip-row">{['All','Evidence','Protection','Tracking','Utility','Media'].map(c=><button className={'chip '+(category===c?'selected':'')} aria-pressed={category===c} onClick={()=>setCategory(c)} key={c}>{c}</button>)}</div></div><div className="equipment-grid">{matching.map(e=>{const Icon=icons[e.icon as keyof typeof icons];return <Link to={'equipment/'+e.id} className="equipment-card" key={e.id}><div className="equipment-visual"><Icon size={62} strokeWidth={1}/><span className="equipment-tier">I / II / III</span></div><div className="equipment-content"><span className="eyebrow">{e.category}</span><h3>{e.name}<ArrowUpRight size={16}/></h3><p>{e.summary}</p></div></Link>;})}</div>{!matching.length&&<Empty title="No equipment found">Try a different term or category.</Empty>}</>;
-}
+export {Equipment} from './EquipmentLibrary';
 export function Guides({id}:{id?:string}){
  const [query,setQuery]=useChapterState('Guides-query','');const guide=GUIDES.find(g=>g.id===id);
  if(id&&!guide)return <Empty title="Guide not found">Choose a guide from the library.</Empty>;

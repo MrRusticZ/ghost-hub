@@ -1,0 +1,1195 @@
+[
+  {
+    "id": "uv-light",
+    "revision": 21391,
+    "price": 35,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "uv-light-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "UV charge time",
+            "5 s"
+          ],
+          [
+            "Spotlight",
+            "Narrow"
+          ]
+        ]
+      },
+      {
+        "level": 18,
+        "image": "uv-light-2",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Duration",
+            "60 s"
+          ],
+          [
+            "UV charge time",
+            "10 s"
+          ]
+        ]
+      },
+      {
+        "level": 46,
+        "image": "uv-light-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "UV charge time",
+            "1.5 s"
+          ],
+          [
+            "Spotlight",
+            "Wide"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spirit-box",
+    "revision": 24504,
+    "price": 50,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "spirit-box-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Audio Quality",
+            "Low"
+          ],
+          [
+            "Response Rate",
+            "Low"
+          ],
+          [
+            "Range",
+            "3 m"
+          ]
+        ]
+      },
+      {
+        "level": 23,
+        "image": "spirit-box-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Audio Quality",
+            "Medium"
+          ],
+          [
+            "Response Rate",
+            "Medium"
+          ],
+          [
+            "Range",
+            "4 m"
+          ]
+        ]
+      },
+      {
+        "level": 46,
+        "image": "spirit-box-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Audio Quality",
+            "High"
+          ],
+          [
+            "Response Rate",
+            "High"
+          ],
+          [
+            "Range",
+            "5 m"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "emf-reader",
+    "revision": 21385,
+    "price": 45,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "emf-reader-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "Low"
+          ],
+          [
+            "Range",
+            "1.7 m"
+          ]
+        ]
+      },
+      {
+        "level": 18,
+        "image": "emf-reader-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "Medium"
+          ],
+          [
+            "Range",
+            "2 m"
+          ]
+        ]
+      },
+      {
+        "level": 46,
+        "image": "emf-reader-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "High"
+          ],
+          [
+            "Range",
+            "3.5 m"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "thermometer",
+    "revision": 22737,
+    "price": 30,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "thermometer-1",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "Low"
+          ],
+          [
+            "Sample Speed",
+            "Low"
+          ]
+        ]
+      },
+      {
+        "level": 27,
+        "image": "thermometer-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "Medium"
+          ],
+          [
+            "Sample Speed",
+            "Medium"
+          ]
+        ]
+      },
+      {
+        "level": 65,
+        "image": "thermometer-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Accuracy",
+            "High"
+          ],
+          [
+            "Sample Speed",
+            "High"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "writing-book",
+    "revision": 23234,
+    "price": 40,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "writing-book-1",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Interaction Rate",
+            "Low"
+          ],
+          [
+            "Range",
+            "3 m"
+          ]
+        ]
+      },
+      {
+        "level": 23,
+        "image": "writing-book-2",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Interaction Rate",
+            "Medium"
+          ],
+          [
+            "Range",
+            "4 m"
+          ]
+        ]
+      },
+      {
+        "level": 55,
+        "image": "writing-book-3",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Interaction Rate",
+            "High"
+          ],
+          [
+            "Range",
+            "5 m"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dots-projector",
+    "revision": 22987,
+    "price": 65,
+    "max": 2,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "dots-projector-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "5 m"
+          ],
+          [
+            "Spotlight",
+            "Narrow"
+          ]
+        ]
+      },
+      {
+        "level": 27,
+        "image": "dots-projector-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "2.5 m"
+          ]
+        ]
+      },
+      {
+        "level": 49,
+        "image": "dots-projector-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "7 m"
+          ],
+          [
+            "Spotlight",
+            "Wide"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "video-camera",
+    "revision": 24481,
+    "price": 50,
+    "max": 4,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "video-camera-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Image Quality",
+            "Low"
+          ],
+          [
+            "Paranormal Resistance",
+            "Low"
+          ]
+        ]
+      },
+      {
+        "level": 27,
+        "image": "video-camera-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Image Quality",
+            "Medium"
+          ],
+          [
+            "Paranormal Resistance",
+            "Medium"
+          ]
+        ]
+      },
+      {
+        "level": 49,
+        "image": "video-camera-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Image Quality",
+            "High"
+          ],
+          [
+            "Paranormal Resistance",
+            "High"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "incense",
+    "revision": 23285,
+    "price": 15,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 14,
+        "image": "incense-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "3 m"
+          ],
+          [
+            "Duration",
+            "5 s"
+          ],
+          [
+            "Typical hunt blindness",
+            "5 s"
+          ]
+        ]
+      },
+      {
+        "level": 37,
+        "image": "incense-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "4 m"
+          ],
+          [
+            "Duration",
+            "6 s"
+          ],
+          [
+            "Typical hunt blindness",
+            "5 s"
+          ],
+          [
+            "Hunt slowdown",
+            "5 s"
+          ]
+        ]
+      },
+      {
+        "level": 80,
+        "image": "incense-3",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "5 m"
+          ],
+          [
+            "Duration",
+            "7 s"
+          ],
+          [
+            "Typical hunt blindness",
+            "5 s"
+          ],
+          [
+            "Hunt halt",
+            "5 s"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crucifix",
+    "revision": 24416,
+    "price": 30,
+    "max": 2,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 7,
+        "image": "crucifix-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "3 m"
+          ],
+          [
+            "Uses",
+            "1"
+          ]
+        ]
+      },
+      {
+        "level": 34,
+        "image": "crucifix-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "4 m"
+          ],
+          [
+            "Uses",
+            "2"
+          ]
+        ]
+      },
+      {
+        "level": 80,
+        "image": "crucifix-3",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "5 m"
+          ],
+          [
+            "Uses",
+            "2"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "salt",
+    "revision": 24412,
+    "price": 15,
+    "max": 3,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 8,
+        "image": "salt-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Uses",
+            "2"
+          ]
+        ]
+      },
+      {
+        "level": 39,
+        "image": "salt-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Uses",
+            "3"
+          ]
+        ]
+      },
+      {
+        "level": 65,
+        "image": "salt-3",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Uses",
+            "3"
+          ],
+          [
+            "Hunt slowdown",
+            "2 s"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "parabolic",
+    "revision": 23265,
+    "price": 50,
+    "max": 2,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 5,
+        "image": "parabolic-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "20 m"
+          ],
+          [
+            "Sensor Shape",
+            "Wide"
+          ]
+        ]
+      },
+      {
+        "level": 32,
+        "image": "parabolic-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "30 m"
+          ],
+          [
+            "Sensor Shape",
+            "Wide"
+          ]
+        ]
+      },
+      {
+        "level": 70,
+        "image": "parabolic-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "30 m"
+          ],
+          [
+            "Sensor Shape",
+            "Wide"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "motion-sensor",
+    "revision": 21588,
+    "price": 100,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 3,
+        "image": "motion-sensor-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Sensor Shape",
+            "Line"
+          ]
+        ]
+      },
+      {
+        "level": 42,
+        "image": "motion-sensor-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Sensor Shape",
+            "Line"
+          ],
+          [
+            "Sensor Shape",
+            "Narrow"
+          ]
+        ]
+      },
+      {
+        "level": 70,
+        "image": "motion-sensor-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "1.5 m"
+          ],
+          [
+            "Sensor Shape",
+            "Full"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "flashlight",
+    "revision": 23423,
+    "price": 30,
+    "max": 4,
+    "starter": true,
+    "tiers": [
+      {
+        "level": 1,
+        "image": "flashlight-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Intensity",
+            "Low"
+          ],
+          [
+            "Spotlight",
+            "Narrow"
+          ]
+        ]
+      },
+      {
+        "level": 18,
+        "image": "flashlight-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Intensity",
+            "Medium"
+          ],
+          [
+            "Spotlight",
+            "Narrow"
+          ]
+        ]
+      },
+      {
+        "level": 34,
+        "image": "flashlight-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Intensity",
+            "High"
+          ],
+          [
+            "Spotlight",
+            "Wide"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "photo-camera",
+    "revision": 24480,
+    "price": 40,
+    "max": 3,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 2,
+        "image": "photo-camera-1",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Between photos",
+            "3 s"
+          ]
+        ]
+      },
+      {
+        "level": 23,
+        "image": "photo-camera-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Paranormal Resistance",
+            "Medium"
+          ],
+          [
+            "Between photos",
+            "2 s"
+          ]
+        ]
+      },
+      {
+        "level": 55,
+        "image": "photo-camera-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Paranormal Resistance",
+            "High"
+          ],
+          [
+            "Between photos",
+            "1 s"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sanity-medication",
+    "revision": 21402,
+    "price": 20,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 14,
+        "image": "sanity-medication-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Restoration time",
+            "20 s"
+          ]
+        ]
+      },
+      {
+        "level": 39,
+        "image": "sanity-medication-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Restoration time",
+            "10 s"
+          ]
+        ]
+      },
+      {
+        "level": 75,
+        "image": "sanity-medication-3",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Restoration time",
+            "10 s"
+          ],
+          [
+            "Sprint boost",
+            "10 s"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "head-gear",
+    "revision": 21395,
+    "price": 60,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 13,
+        "image": "head-gear-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Function",
+            "Camera feed"
+          ],
+          [
+            "Slot",
+            "Head"
+          ],
+          [
+            "Image Quality",
+            "Medium"
+          ]
+        ]
+      },
+      {
+        "level": 42,
+        "image": "head-gear-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Function",
+            "Head lamp"
+          ],
+          [
+            "Slot",
+            "Head"
+          ],
+          [
+            "Intensity",
+            "Medium"
+          ]
+        ]
+      },
+      {
+        "level": 80,
+        "image": "head-gear-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Function",
+            "Night vision"
+          ],
+          [
+            "Slot",
+            "Head"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "firelight",
+    "revision": 24625,
+    "price": 15,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 12,
+        "image": "firelight-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "2 m"
+          ],
+          [
+            "Duration",
+            "5 min"
+          ],
+          [
+            "Passive drain reduction",
+            "33%"
+          ]
+        ]
+      },
+      {
+        "level": 37,
+        "image": "firelight-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Range",
+            "2 m"
+          ],
+          [
+            "Duration",
+            "10 min"
+          ],
+          [
+            "Passive drain reduction",
+            "50%"
+          ]
+        ]
+      },
+      {
+        "level": 75,
+        "image": "firelight-3",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Range",
+            "2 m"
+          ],
+          [
+            "Passive drain reduction",
+            "66%"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "igniter",
+    "revision": 22579,
+    "price": 10,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 12,
+        "image": "igniter-1",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Duration",
+            "10 s"
+          ],
+          [
+            "Uses",
+            "10"
+          ]
+        ]
+      },
+      {
+        "level": 37,
+        "image": "igniter-2",
+        "electronic": false,
+        "consumable": true,
+        "stats": [
+          [
+            "Duration",
+            "5 min"
+          ]
+        ]
+      },
+      {
+        "level": 52,
+        "image": "igniter-3",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Duration",
+            "10 min"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sound-sensor",
+    "revision": 21403,
+    "price": 80,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 10,
+        "image": "sound-sensor-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "5, 10 m"
+          ],
+          [
+            "Sensor Shape",
+            "Full"
+          ]
+        ]
+      },
+      {
+        "level": 32,
+        "image": "sound-sensor-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "5, 10, 15 m"
+          ],
+          [
+            "Sensor Shape",
+            "Full"
+          ]
+        ]
+      },
+      {
+        "level": 52,
+        "image": "sound-sensor-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "5, 10, 15 m"
+          ],
+          [
+            "Sensor Shape",
+            "Full"
+          ],
+          [
+            "Sensor Shape",
+            "Wide"
+          ],
+          [
+            "Sensor Shape",
+            "Sides"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sound-recorder",
+    "revision": 24627,
+    "price": 30,
+    "max": 2,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 4,
+        "image": "sound-recorder-1",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "3 m"
+          ]
+        ]
+      },
+      {
+        "level": 39,
+        "image": "sound-recorder-2",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "5 m"
+          ]
+        ]
+      },
+      {
+        "level": 60,
+        "image": "sound-recorder-3",
+        "electronic": true,
+        "consumable": false,
+        "stats": [
+          [
+            "Range settings",
+            "5 m"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tripod",
+    "revision": 22139,
+    "price": 25,
+    "max": 4,
+    "starter": false,
+    "tiers": [
+      {
+        "level": 9,
+        "image": "tripod-1",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Stability",
+            "Low"
+          ]
+        ]
+      },
+      {
+        "level": 34,
+        "image": "tripod-2",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Stability",
+            "Medium"
+          ]
+        ]
+      },
+      {
+        "level": 60,
+        "image": "tripod-3",
+        "electronic": false,
+        "consumable": false,
+        "stats": [
+          [
+            "Stability",
+            "High"
+          ]
+        ]
+      }
+    ]
+  }
+]
