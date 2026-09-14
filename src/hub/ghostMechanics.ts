@@ -58,15 +58,15 @@ export const GHOST_MECHANICS:GhostMechanics[] = [
     pace:[los('45','Team sanity ≥45%',1.5),los('40','40–45%',1.583),los('35','35–40%',1.66),los('30','30–35%',1.749),los('25','25–30%',1.832),los('20','20–25%',1.915),los('15','15–20%',1.998),los('10','10–15%',2.081),los('5','5–10%',2.164),los('0','0–5%',2.25)],
     movement:'Base speed follows average team sanity; it can also accelerate in a chase.',blind:'7 s',timing:'Hunt prevention lasts 90 seconds. The community reference reports a 7-second blinding effect during hunts.'}),
   standard('deogen','Fast at a distance and very slow close to its target. Hiding does not conceal players from Deogen.',{
-    pace:[fixed('far','Target farther than 6 m',3),fixed('near','Target closer than 2.5 m',.4)],
-    movement:'Speed varies between these endpoints with pathing distance. No line-of-sight acceleration.'}),
+    pace:[fixed('far','Path distance above 5.32 m',3),fixed('near','Path distance below 2.42 m',.4)],
+    movement:'Speed follows 0.15 × 2^(path distance − 1), capped at 0.4–3 m/s. No line-of-sight acceleration. During incense blindness its base pace is 0.4 m/s at 50–100% settings, or 1.6 m/s at 125–150% settings.'}),
   standard('thaye','Compare hunts as it ages near players. Elapsed time alone does not establish age.',{
     pace:Array.from({length:11},(_,age)=>fixed('age-'+age,age===0?'Age 0 · youngest':age===10?'Age 10 · oldest':'Age '+age,2.75-age*.175)),
     movement:'Speed is fixed for its age; no line-of-sight acceleration.',
     timing:'First ageing check: 60 seconds after opening an exit. Later checks: 60–120 seconds after success, or a 30-second retry without a nearby player. Age changes during a hunt take effect afterwards.'}),
   standard('dayan','A nearby player moving or standing still changes the rhythm, even without a direct view.',{
     pace:[...standardPace(),fixed('moving','Nearby player moving (within 10 m)',2.25),fixed('still','Nearby player still (within 10 m)',1.2)],
-    movement:'Nearby movement overrides ordinary speed. With no player within 10 m, normal chase acceleration applies.'}),
+    movement:'The closest player within 10 m determines its movement override, including across floors. With no player within 10 m, normal chase acceleration applies.'}),
   standard('gallu','Protective equipment can change its state. Listen again after the protection effect ends.',{
     pace:[los('normal','Normal',1.7),los('enraged','Enraged',1.955),los('weakened','Weakened',1.36)],
     movement:'State controls its base pace; chase acceleration also applies.',blind:'5 / 4 / 6 s',
@@ -86,7 +86,7 @@ export const GHOST_MECHANICS:GhostMechanics[] = [
     pace:[fixed('0','0 unique objects',3),fixed('13','13 unique objects',1.7),fixed('26','26+ unique objects',.4)],
     movement:'Each distinct qualifying object reduces the next hunt speed by 0.1 m/s, down to 0.4 m/s. No chase acceleration.',
     timing:'Its object counter resets after a hunt or blocked hunt attempt. Speed is locked for the next hunt; player equipment does not count.',
-    source:'https://phasmo.guru/ghostspeeds/deildegast'})
+    source:wiki('Deildegast')})
 ];
 const byId = new Map(GHOST_MECHANICS.map(g=>[g.id,g]));
 export function mechanicsFor(id:string){return byId.get(id);}

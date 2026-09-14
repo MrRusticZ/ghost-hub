@@ -1,7 +1,7 @@
 {
-  "version": "2026.09.13.1",
-  "reviewedAt": "2026-09-13",
-  "coverage": "Evidence reference snapshot including Deildegast. Behaviour coverage is selective; check sources after game updates.",
+  "version": "2026.09.14.1",
+  "reviewedAt": "2026-09-14",
+  "coverage": "All 30 evidence profiles and identification dossiers reviewed against current community references on 14 September 2026. Media dates are shown separately; check source updates after game patches.",
   "ghosts": [
     {
       "id": "spirit",
@@ -72,7 +72,7 @@
         "dots"
       ],
       "summary": "Its target-focused behaviour and special microphone scream can be useful clues.",
-      "test": "Listen with a parabolic microphone and compare the sound against a trusted reference.",
+      "test": "Listen through a Parabolic Microphone or Sound Recorder. Compare a suspected call with the contextual recording.",
       "caution": "Ordinary singing is not the distinctive Banshee scream.",
       "sources": [
         "https://phasmophobia.fandom.com/wiki/Banshee"
@@ -421,9 +421,9 @@
         "freezing",
         "writing"
       ],
-      "summary": "A newer entry in the reference catalog.",
-      "test": "Prioritise confirmed evidence and consult the linked reference before using specialised tests.",
-      "caution": "Advanced behaviour rules are not used for automatic elimination in this release.",
+      "summary": "Its base pace is 1.53 m/s, but chase acceleration builds faster than normal.",
+      "test": "Identify an available game-defined hiding place. Record the approach and whether the hunt ended early.",
+      "caution": "Furniture corners and blocked hiding spots do not qualify.",
       "sources": [
         "https://phasmophobia.fandom.com/wiki/Aswang"
       ]
@@ -436,9 +436,9 @@
         "box",
         "uv"
       ],
-      "summary": "A newer ghost whose hearing is especially important.",
-      "test": "Consult the current source before attempting movement-based tests.",
-      "caution": "Advanced behaviour rules are not used for automatic elimination in this release.",
+      "summary": "It can detect player footsteps, with longer ranges for sprinting than crouch-walking.",
+      "test": "Stay out of its likely path and stop voice and electronic cues. Compare its response to movement on the same floor.",
+      "caution": "Check for freezing before choosing it over an orb-producing Mimic.",
       "sources": [
         "https://phasmophobia.fandom.com/wiki/Kormos"
       ]
@@ -451,11 +451,11 @@
         "writing",
         "dots"
       ],
-      "summary": "Introduced with the July 2026 quality-of-life update.",
-      "test": "Collect its evidence combination; consult current research for item-related speed tests.",
-      "caution": "Its newer behavioural mechanics are not used for automatic elimination in this release.",
+      "summary": "It starts at 3 m/s and loses 0.1 m/s per qualifying unique object touched outside hunts, down to 0.4 m/s.",
+      "test": "Interact with multiple distinct qualifying objects before a hunt. Listen for a lower fixed pace without chase acceleration.",
+      "caution": "Repeat after the reset; moving one object repeatedly is not equivalent.",
       "sources": [
-        "https://games.gg/phasmophobia/guides/phasmophobia-how-to-identify-a-deildegast/"
+        "https://phasmophobia.fandom.com/wiki/Deildegast"
       ]
     }
   ]

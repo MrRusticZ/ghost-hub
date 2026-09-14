@@ -18,7 +18,7 @@
     "test:browser": "node scripts/browser-check.mjs && node scripts/extended-browser-check.mjs && node scripts/chat-browser-check.mjs && npm run test:casebook && npm run test:atlas && npm run test:encyclopedia",
     "test:casebook": "node scripts/casebook-browser-check.mjs && node scripts/casebook-edge-check.mjs && node scripts/casebook-accessibility-check.mjs",
     "test:atlas": "node scripts/atlas-browser-check.mjs",
-    "test:encyclopedia": "node scripts/encyclopedia-browser-check.mjs"
+    "test:encyclopedia": "node scripts/encyclopedia-browser-check.mjs && node scripts/dossier-browser-check.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.2.0",

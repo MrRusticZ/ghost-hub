@@ -1,0 +1,1259 @@
+[
+  {
+    "id": "spirit",
+    "number": 1,
+    "focus": "Time the cleanse, not the silence.",
+    "facts": [
+      "A successful incense cleanse prevents ordinary hunts for 180 seconds.",
+      "There is no unique Spirit appearance or vocal sound.",
+      "Cursed hunts can bypass this prevention."
+    ],
+    "steps": [
+      "Confirm the incense reached the ghost.",
+      "Start the timer when the cleanse lands.",
+      "An ordinary hunt before 180 seconds conflicts with Spirit; a longer wait alone proves nothing."
+    ],
+    "related": [
+      "demon",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/c/c1/Spirit_Discovered.jpg/revision/latest?cb=20231115114542",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Spirit_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Spirit · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1258s",
+        "start": 1258,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1295
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Spirit",
+    "revision": 23120,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "wraith",
+    "number": 2,
+    "focus": "Watch the salt crossing.",
+    "facts": [
+      "Wraith does not disturb salt, including Tier III during hunts.",
+      "It can teleport to a player outside a hunt and leave EMF at the destination.",
+      "Its model, visible feet and normal footstep sounds do not identify it."
+    ],
+    "steps": [
+      "Place salt across a tracked route.",
+      "Use a motion sensor or clear manifestation to verify a crossing.",
+      "Repeat and consider an enraged Gallu or a copying Mimic."
+    ],
+    "related": [
+      "gallu",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/c/c1/Wraith_Discovered.jpg/revision/latest?cb=20231115114549",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Wraith_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Wraith · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1481s",
+        "start": 1481,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1515
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Wraith",
+    "revision": 23023,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "phantom",
+    "number": 3,
+    "focus": "Watch what remains after the photo.",
+    "facts": [
+      "A successful event photograph makes the Phantom disappear while the event can continue.",
+      "Its hunt flicker has unusually long invisible intervals.",
+      "Roaming towards a player can produce activity away from the favourite room."
+    ],
+    "steps": [
+      "Photograph a visible event before it ends.",
+      "Check the registered photo and continuing event, not just an empty frame.",
+      "Compare several hunt flickers when visibility permits."
+    ],
+    "related": [
+      "oni",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/2/27/Phantom_Discovered.jpg/revision/latest?cb=20231115114535",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Phantom_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Phantom · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1008s",
+        "start": 1008,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1060
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Phantom",
+    "revision": 24609,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "poltergeist",
+    "number": 4,
+    "focus": "Follow the whole burst.",
+    "facts": [
+      "Its ability can throw several nearby objects together.",
+      "It throws available objects more consistently during hunts.",
+      "A single strong throw is only supporting information."
+    ],
+    "steps": [
+      "Build a pile of loose props in the activity area.",
+      "Watch for one simultaneous burst rather than successive ordinary throws.",
+      "Record the sequence and check evidence against The Mimic."
+    ],
+    "related": [
+      "oni",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/1/10/Poltergeist_Discovered.jpg/revision/latest?cb=20231115114536",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Poltergeist_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "animation",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/b/b0/Poltergeist_Throw_1.gif/revision/latest?cb=20250718000642",
+        "title": "Simultaneous throw",
+        "author": "Darkhooper / Phasmophobia Wiki",
+        "date": "2025-07-18",
+        "source": "https://phasmophobia.fandom.com/wiki/File:Poltergeist_Throw_1.gif",
+        "alt": "Several objects thrown during a Poltergeist ability demonstration.",
+        "context": "One documented multi-throw variant. The ability has other visual variants; a normal single throw is inconclusive.",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Poltergeist · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1060s",
+        "start": 1060,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1112
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Poltergeist",
+    "revision": 24435,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "banshee",
+    "number": 5,
+    "focus": "Recognise the equipment call.",
+    "facts": [
+      "A Parabolic Microphone or Sound Recorder can reveal its distinctive calls.",
+      "Hunt attempts use the target player's sanity rather than the team average.",
+      "If its target is outside, it can hunt other players normally."
+    ],
+    "steps": [
+      "Listen through a Parabolic Microphone or Sound Recorder.",
+      "Compare a suspected call with the contextual recording.",
+      "Treat ordinary sounds or silence as inconclusive."
+    ],
+    "related": [
+      "myling",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/2/26/Banshee_Discovered.jpg/revision/latest?cb=20231115114509",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Banshee_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "20CDZj4WkKA",
+        "title": "Distinctive calls in gameplay",
+        "author": "Justly",
+        "date": "2025-07-15",
+        "source": "https://www.youtube.com/watch?v=20CDZj4WkKA",
+        "start": 0,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics."
+      },
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Banshee · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=29s",
+        "start": 29,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 110
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Banshee",
+    "revision": 24594,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "jinn",
+    "number": 6,
+    "focus": "Compare the chase with power on.",
+    "facts": [
+      "Its special 2.5 m/s chase needs a powered breaker, a visible target and more than 3 metres of separation.",
+      "It cannot directly switch the breaker off; light overloads can still do that.",
+      "Chase acceleration can accumulate behind the special speed."
+    ],
+    "steps": [
+      "Record breaker state and target distance.",
+      "Compare the chase with the breaker on and off.",
+      "Separate direct breaker interaction from an overload."
+    ],
+    "related": [
+      "raiju",
+      "revenant"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/5/56/Jinn_Discovered.jpg/revision/latest?cb=20231115114529",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Jinn_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Jinn · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=513s",
+        "start": 513,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 562
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Jinn",
+    "revision": 24354,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "mare",
+    "number": 7,
+    "focus": "Check the light switch.",
+    "facts": [
+      "It cannot turn room light switches on.",
+      "It may switch a light off almost immediately after a player turns it on.",
+      "Its usual threshold depends on the room's switch state: 60% off, 40% on; equipment lights do not count."
+    ],
+    "steps": [
+      "Watch an actual room switch, not just a dark room.",
+      "Leave at least 10 seconds between switch changes when repeating the test.",
+      "A single quick switch-off can be a coincidence."
+    ],
+    "related": [
+      "onryo",
+      "demon"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/3/32/Mare_Discovered.jpg/revision/latest?cb=20231115114529",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Mare_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Mare · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=562s",
+        "start": 562,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 627
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Mare",
+    "revision": 23811,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "revenant",
+    "number": 8,
+    "focus": "Listen before and after detection.",
+    "facts": [
+      "It travels at 1 m/s while undetected and 3 m/s after detecting a player.",
+      "Voice and electronics can trigger the speed-up too.",
+      "It keeps the fast pace to the last detection point before slowing."
+    ],
+    "steps": [
+      "Listen from a hiding position with electronics off.",
+      "Compare a later detection sequence with an escape route ready.",
+      "Do not expect it to slow the instant line of sight breaks."
+    ],
+    "related": [
+      "deogen",
+      "jinn"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/1/16/Revenant_Discovered.jpg/revision/latest?cb=20231115114538",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Revenant_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Revenant · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1170s",
+        "start": 1170,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1209
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Revenant",
+    "revision": 23424,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "shade",
+    "number": 9,
+    "focus": "Watch inside the circle.",
+    "facts": [
+      "A cursed manifestation can show a shadow form; a solid form does not exclude Shade.",
+      "Players sharing its current room suppress ordinary interactions, events and hunt starts.",
+      "Its normal hunt threshold is 35% team sanity."
+    ],
+    "steps": [
+      "Track the ghost's current room, which can differ from its favourite room.",
+      "Leave equipment there and move players outside.",
+      "Activity in your room may originate from a ghost in the adjacent room."
+    ],
+    "related": [
+      "goryo",
+      "thaye"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/f/ff/Shade_Discovered.jpg/revision/latest?cb=20231115114541",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Shade_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "animation",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/4/49/SummoningCircleShadeShadow.gif/revision/latest?cb=20231216031618",
+        "title": "Shadow manifestation",
+        "author": "Silvervine / Phasmophobia Wiki",
+        "date": "2023-12-16",
+        "source": "https://phasmophobia.fandom.com/wiki/File:SummoningCircleShadeShadow.gif",
+        "alt": "A shadow-form ghost inside a lit Summoning Circle in a basement.",
+        "context": "Historical cursed-manifestation example. An ordinary shadow event is not unique, and a full-body cursed manifestation does not exclude Shade.",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Shade · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1209s",
+        "start": 1209,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1258
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Shade",
+    "revision": 23207,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "demon",
+    "number": 10,
+    "focus": "Record the early hunt.",
+    "facts": [
+      "Its normal threshold is 70%, with a separate ability that can attempt hunts at any sanity.",
+      "Incense prevents its ordinary hunts for 60 seconds.",
+      "Its hunt cooldown can be 20 seconds and crucifix range is enlarged."
+    ],
+    "steps": [
+      "Record sanity and whether a cursed item was involved.",
+      "Time a confirmed incense cleanse and the next normal hunt.",
+      "An early hunt is useful only with its conditions known."
+    ],
+    "related": [
+      "spirit",
+      "onryo"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/f/f5/Demon_Discovered.jpg/revision/latest?cb=20231115114516",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Demon_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Demon · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=200s",
+        "start": 200,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 259
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Demon",
+    "revision": 24442,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "yurei",
+    "number": 11,
+    "focus": "Track the door and the context.",
+    "facts": [
+      "Its ability closes a suitable open door and drains nearby sanity.",
+      "A normal door interaction outside a hunt generally moves the door fully.",
+      "A delayed door sound is not a reliable identification test."
+    ],
+    "steps": [
+      "Observe a room door outside hunts and events.",
+      "Record the movement and any simultaneous sanity loss.",
+      "Exclude player touches, event closures and locker-door exceptions."
+    ],
+    "related": [
+      "mare",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/3/31/Yurei_Discovered.jpg/revision/latest?cb=20231115114551",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Yurei_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Yurei · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1560s",
+        "start": 1560,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1626
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Yurei",
+    "revision": 24593,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "oni",
+    "number": 12,
+    "focus": "Compare the visible intervals.",
+    "facts": [
+      "It stays visible for more of a hunt than an ordinary ghost.",
+      "It cannot perform the moving mist-ball event.",
+      "A hiss alone is insufficient: other events can make that sound."
+    ],
+    "steps": [
+      "Observe several hunt flickers from a clear escape route.",
+      "Compare against Phantom's longer invisible gaps.",
+      "Distinguish an actual mist ball from a manifestation that hisses."
+    ],
+    "related": [
+      "phantom",
+      "deogen"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/8/86/Oni_Discovered.jpg/revision/latest?cb=20231115114533",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Oni_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Oni · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=872s",
+        "start": 872,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 918
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Oni",
+    "revision": 24610,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "yokai",
+    "number": 13,
+    "focus": "Separate hearing from sight.",
+    "facts": [
+      "During hunts it detects voices and handheld active electronics only within 2.5 metres.",
+      "Its normal line of sight still works.",
+      "Talking in its room can raise its hunt threshold to 80%."
+    ],
+    "steps": [
+      "Break line of sight before comparing detection.",
+      "Account for distance, walls and electronics.",
+      "Repeat: one missed detection does not identify a Yokai."
+    ],
+    "related": [
+      "kormos",
+      "myling"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/2/27/Yokai_Discovered.jpg/revision/latest?cb=20231115114550",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Yokai_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Yokai · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1515s",
+        "start": 1515,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1560
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Yokai",
+    "revision": 23421,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "hantu",
+    "number": 14,
+    "focus": "Follow the temperature change.",
+    "facts": [
+      "Its pace follows the room temperature rather than chase acceleration.",
+      "It can show ghost breath during hunts with the breaker off.",
+      "Freezing is forced when the contract gives at least one evidence."
+    ],
+    "steps": [
+      "Compare pace through warmer and colder rooms.",
+      "Watch the ghost's head for breath during a breaker-off hunt.",
+      "Player breath does not establish freezing evidence."
+    ],
+    "related": [
+      "revenant",
+      "moroi"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/e/e0/Hantu_Discovered.jpg/revision/latest?cb=20231115114526",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Hantu_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Hantu · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=448s",
+        "start": 448,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 513
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Hantu",
+    "revision": 24456,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "goryo",
+    "number": 15,
+    "focus": "Compare the camera and your eyes.",
+    "facts": [
+      "Its D.O.T.S. silhouette is visible only through a video camera.",
+      "No player can be in its current room when it enters D.O.T.S. state.",
+      "It normally keeps its favourite room; the Monkey Paw sanity wish is an exception."
+    ],
+    "steps": [
+      "Place a camera and D.O.T.S. with a clear view.",
+      "Leave the ghost's room and compare direct and camera views together.",
+      "Camera-only observation without a simultaneous direct comparison proves little."
+    ],
+    "related": [
+      "shade",
+      "obake"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/6/6b/Goryo_Discovered.jpg/revision/latest?cb=20231115114525",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Goryo_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "animation",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/1/1b/Gyo_dawt.gif/revision/latest?cb=20250406035522",
+        "title": "Camera-only D.O.T.S.",
+        "author": "ItsZumbo / Phasmophobia Wiki",
+        "date": "2025-04-06",
+        "source": "https://phasmophobia.fandom.com/wiki/File:Gyo_dawt.gif",
+        "alt": "A camera and direct view compared during a Goryo D.O.T.S. appearance.",
+        "context": "Historical comparison from the Goryo article. Keep every player outside its current room.",
+        "width": 299,
+        "height": 168
+      },
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Goryo · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=409s",
+        "start": 409,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 448
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Goryo",
+    "revision": 23229,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "myling",
+    "number": 16,
+    "focus": "Listen as interference approaches.",
+    "facts": [
+      "Hunt footsteps and vocals become audible within 12 metres rather than the usual 20.",
+      "This range is close to ordinary electronic interference distance.",
+      "It also produces equipment paranormal sounds more frequently."
+    ],
+    "steps": [
+      "Compare footsteps and a placed active flashlight on the same floor.",
+      "Repeat as it approaches and leaves.",
+      "Floor differences, walls and sound settings can distort the comparison."
+    ],
+    "related": [
+      "banshee",
+      "yokai"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/e/e0/Myling_Discovered.jpg/revision/latest?cb=20231115114531",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Myling_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Myling · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=691s",
+        "start": 691,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 736
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Myling",
+    "revision": 23183,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "onryo",
+    "number": 17,
+    "focus": "Count flame blowouts carefully.",
+    "facts": [
+      "A flame within 4 metres can prevent its hunt before a crucifix is used.",
+      "A three-blowout counter can trigger an ability hunt when cooldown and incense conditions allow.",
+      "Another flame or protection can block that attempt."
+    ],
+    "steps": [
+      "Track every ghost blowout and nearby flame.",
+      "Keep a crucifix in range and note which protection is used.",
+      "Do not assume the third blowout must produce an immediate hunt."
+    ],
+    "related": [
+      "demon",
+      "mimic"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/f/f3/Onryo_Discovered.jpg/revision/latest?cb=20231115114534",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Onryo_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Onryo · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=918s",
+        "start": 918,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1008
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Onryo",
+    "revision": 24595,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "twins",
+    "number": 18,
+    "focus": "Compare separate hunts.",
+    "facts": [
+      "There is one ghost, with interactions in a normal and a wider range.",
+      "At each hunt it selects a slower or faster pace.",
+      "The two base speeds are 1.5 and 1.9 m/s at 100% speed."
+    ],
+    "steps": [
+      "Record multiple hunts under the same speed settings.",
+      "Separate base pace from chase acceleration.",
+      "An activity-chart kink alone cannot confirm The Twins."
+    ],
+    "related": [
+      "obambo",
+      "aswang"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/f/f8/The_Twins_Discovered.jpg/revision/latest?cb=20231115114546",
+      "source": "https://phasmophobia.fandom.com/wiki/File:The_Twins_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "The Twins · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1412s",
+        "start": 1412,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1481
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/The_Twins",
+    "revision": 23225,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "raiju",
+    "number": 19,
+    "focus": "Switch off the speed source.",
+    "facts": [
+      "Active brought-in electronics can set its hunt pace to 2.5 m/s.",
+      "The equipment range depends on map size and requires the same floor.",
+      "Building lights are not its speed source."
+    ],
+    "steps": [
+      "Compare a route with active equipment on and off.",
+      "Keep chase exposure consistent.",
+      "Consider its wider 15-metre interference range when comparing Myling."
+    ],
+    "related": [
+      "jinn",
+      "myling"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/a/aa/Raiju_Discovered.jpg/revision/latest?cb=20231115114537",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Raiju_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Raiju · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1112s",
+        "start": 1112,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1170
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Raiju",
+    "revision": 24235,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "obake",
+    "number": 20,
+    "focus": "Count the extra prints.",
+    "facts": [
+      "It can leave six-fingered hands, double fingerprints or five-print patterns on the appropriate surfaces.",
+      "Ordinary prints do not exclude it; UV is forced on reduced-evidence contracts with evidence available.",
+      "Hunt shapeshifts occur at fixed visibility intervals, not a random chance per blink."
+    ],
+    "steps": [
+      "Inspect fresh UV marks and identify the touched surface.",
+      "Compare the correct pattern in the reference gallery.",
+      "Check The Mimic's evidence before concluding Obake."
+    ],
+    "related": [
+      "mimic",
+      "goryo"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/7/7e/Obake_Discovered.jpg/revision/latest?cb=20231115114533",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Obake_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/e/e3/Obake_Six_Fingers.png/revision/latest?cb=20231214235040",
+        "title": "Six-fingered handprint",
+        "author": "Darkhooper / Phasmophobia Wiki",
+        "date": "2023-12-14",
+        "source": "https://phasmophobia.fandom.com/wiki/File:Obake_Six_Fingers.png",
+        "alt": "An unusual six-fingered ultraviolet handprint.",
+        "context": "Compare a full handprint: six fingers instead of five.",
+        "width": 251,
+        "height": 227
+      },
+      {
+        "kind": "image",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/8/8a/Obake_Two_Fingers.png/revision/latest?cb=20231214235041",
+        "title": "Double fingerprint",
+        "author": "Darkhooper / Phasmophobia Wiki",
+        "date": "2023-12-14",
+        "source": "https://phasmophobia.fandom.com/wiki/File:Obake_Two_Fingers.png",
+        "alt": "Two ultraviolet fingerprints on a light switch.",
+        "context": "On switches, lamps and remotes: two prints instead of one.",
+        "width": 195,
+        "height": 261
+      },
+      {
+        "kind": "image",
+        "url": "https://static.wikia.nocookie.net/phasmophobia/images/1/10/Obake_Five_Fingers.png/revision/latest?cb=20231214235039",
+        "title": "Five-print pattern",
+        "author": "Darkhooper / Phasmophobia Wiki",
+        "date": "2023-12-14",
+        "source": "https://phasmophobia.fandom.com/wiki/File:Obake_Five_Fingers.png",
+        "alt": "Five ultraviolet fingerprints in a row.",
+        "context": "On keyboards and cell doors: five prints instead of four.",
+        "width": 258,
+        "height": 146
+      },
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Obake · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=736s",
+        "start": 736,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 825
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Obake",
+    "revision": 24341,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "mimic",
+    "number": 21,
+    "focus": "Keep the orbs in the equation.",
+    "facts": [
+      "It retains Spirit Box, UV and freezing while imitating other behaviours.",
+      "Its extra orbs remain available even on zero evidence.",
+      "It cannot supply another ghost's evidence, such as Goryo's D.O.T.S."
+    ],
+    "steps": [
+      "Check night-vision views of the favourite room for orbs.",
+      "Revisit evidence when behaviour seems to change between hunts.",
+      "Orbs are extra; do not count them as one of its three evidence types."
+    ],
+    "related": [
+      "obake",
+      "hantu",
+      "kormos"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/e/e0/The_Mimic_Discovered.jpg/revision/latest?cb=20231115114545",
+      "source": "https://phasmophobia.fandom.com/wiki/File:The_Mimic_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "The Mimic · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1371s",
+        "start": 1371,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1412
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/The_Mimic",
+    "revision": 24359,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "moroi",
+    "number": 22,
+    "focus": "Connect pace to sanity.",
+    "facts": [
+      "Its base pace rises as average sanity falls, with additional chase acceleration.",
+      "Spirit Box and listening equipment can apply its sanity-draining curse.",
+      "Sanity medication removes the curse; leaving pauses its drain."
+    ],
+    "steps": [
+      "Compare hunt pace with known team sanity.",
+      "Keep line of sight and speed modifiers consistent.",
+      "Use the Spirit Box requirement only when at least one evidence is available."
+    ],
+    "related": [
+      "thaye",
+      "hantu"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/9/95/Moroi_Discovered.jpg/revision/latest?cb=20231115114530",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Moroi_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Moroi · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=627s",
+        "start": 627,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 691
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Moroi",
+    "revision": 24626,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "deogen",
+    "number": 23,
+    "focus": "Keep a route around it.",
+    "facts": [
+      "It tracks players through hiding and slows sharply at close pathfinding distance.",
+      "Its close-range Spirit Box response can be heavy breathing.",
+      "That response is occasional, so ordinary replies do not exclude it."
+    ],
+    "steps": [
+      "Try Spirit Box within 1 metre of the tracked ghost position.",
+      "Prepare a looping route before any hunt observation.",
+      "Keep moving around it rather than hiding in a dead end."
+    ],
+    "related": [
+      "revenant",
+      "thaye"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/d/dd/Deogen_Discovered.jpg/revision/latest?cb=20231115114517",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Deogen_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Deogen · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=259s",
+        "start": 259,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 326
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Deogen",
+    "revision": 24658,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "thaye",
+    "number": 24,
+    "focus": "Look for ageing across hunts.",
+    "facts": [
+      "Time spent near players can lower its future hunt speed and activity.",
+      "Its base speed ranges from 2.75 to 1 m/s as it ages.",
+      "It does not gain ordinary line-of-sight acceleration."
+    ],
+    "steps": [
+      "Compare successive hunts with unchanged difficulty settings.",
+      "Record time spent near the ghost between hunts.",
+      "A single slow hunt does not demonstrate ageing."
+    ],
+    "related": [
+      "moroi",
+      "obambo"
+    ],
+    "emblem": {
+      "url": "https://static.wikia.nocookie.net/phasmophobia/images/6/6a/Thaye_Discovered.jpg/revision/latest?cb=20231115114544",
+      "source": "https://phasmophobia.fandom.com/wiki/File:Thaye_Discovered.jpg",
+      "credit": "Darkhooper / Wiki; game artwork: Kinetic Games"
+    },
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Thaye · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=1295s",
+        "start": 1295,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 1371
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Thaye",
+    "revision": 23537,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "dayan",
+    "number": 25,
+    "focus": "Watch the nearest player's movement.",
+    "facts": [
+      "Within 10 metres, the closest still player gives a fixed 1.2 m/s pace; movement gives 2.25 m/s.",
+      "The proximity check can cross floors.",
+      "Outside that range it uses ordinary movement with accumulated chase acceleration."
+    ],
+    "steps": [
+      "Track every nearby teammate, not only the chased player.",
+      "Compare stillness and movement from a protected position.",
+      "Do not stand in its path: slowing it does not stop it killing."
+    ],
+    "related": [
+      "kormos",
+      "obambo"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Dayan · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=110s",
+        "start": 110,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 200
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Dayan",
+    "revision": 24365,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "gallu",
+    "number": 26,
+    "focus": "Keep a record of protection use.",
+    "facts": [
+      "Salt, a crucifix burn or incense can push it towards its enraged state.",
+      "An enraged Gallu ignores salt and becomes weakened after that hunt ends.",
+      "Its three states change speed, hunt threshold and protection effectiveness."
+    ],
+    "steps": [
+      "Note its state before and after each protection event.",
+      "Leave time for salt or incense state changes to apply.",
+      "Use the host's salt observation when multiplayer visuals disagree."
+    ],
+    "related": [
+      "wraith",
+      "obambo"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Gallu · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=326s",
+        "start": 326,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 409
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Gallu",
+    "revision": 24413,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "obambo",
+    "number": 27,
+    "focus": "Time the change in pace.",
+    "facts": [
+      "It starts calm, switches after the first minute, then every two minutes from the first exit-door opening.",
+      "The state can change during a hunt.",
+      "A hunt begun aggressive is 20% shorter, even if it later becomes calm."
+    ],
+    "steps": [
+      "Log when the investigation door first opens.",
+      "Compare several hunt starts and any mid-hunt pace change.",
+      "Allow for difficulty, cursed hunts and kills when measuring duration."
+    ],
+    "related": [
+      "twins",
+      "thaye"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "zX-gJUfQICA",
+        "title": "Obambo · guide chapter",
+        "author": "Madixx",
+        "date": "2026-03-21",
+        "source": "https://www.youtube.com/watch?v=zX-gJUfQICA&t=825s",
+        "start": 825,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics.",
+        "end": 872
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Obambo",
+    "revision": 24274,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "aswang",
+    "number": 28,
+    "focus": "Check the hiding-place condition.",
+    "facts": [
+      "Its base pace is 1.53 m/s, but chase acceleration builds faster than normal.",
+      "Reaching a detected player in an available official hiding place can end its hunt.",
+      "It then heads towards that previous hiding location on the next hunt."
+    ],
+    "steps": [
+      "Identify an available game-defined hiding place.",
+      "Record the approach and whether the hunt ended early.",
+      "Furniture corners and blocked hiding spots do not qualify."
+    ],
+    "related": [
+      "twins",
+      "obambo"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "l9kY1kyxxzY",
+        "title": "Aswang explained",
+        "author": "hydrasung",
+        "date": "2026",
+        "source": "https://www.youtube.com/watch?v=l9kY1kyxxzY",
+        "start": 0,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics."
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Aswang",
+    "revision": 24628,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "kormos",
+    "number": 29,
+    "focus": "Listen to your own movement.",
+    "facts": [
+      "It can detect player footsteps, with longer ranges for sprinting than crouch-walking.",
+      "It gains visual detection only from moving players within 5 metres.",
+      "Standing still does not prevent a collision kill."
+    ],
+    "steps": [
+      "Stay out of its likely path and stop voice and electronic cues.",
+      "Compare its response to movement on the same floor.",
+      "Check for freezing before choosing it over an orb-producing Mimic."
+    ],
+    "related": [
+      "yokai",
+      "dayan",
+      "mimic"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "MRgq9rsmDqE",
+        "title": "Kormos explained",
+        "author": "hydrasung",
+        "date": "2026",
+        "source": "https://www.youtube.com/watch?v=MRgq9rsmDqE",
+        "start": 0,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics."
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Kormos",
+    "revision": 24586,
+    "reviewedAt": "2026-09-14"
+  },
+  {
+    "id": "deildegast",
+    "number": 30,
+    "focus": "Count distinct objects between hunts.",
+    "facts": [
+      "It starts at 3 m/s and loses 0.1 m/s per qualifying unique object touched outside hunts, down to 0.4 m/s.",
+      "Equipment, doors and cursed possessions do not count; ordinary props and switches can.",
+      "A hunt ending or crucifix burn resets the counter."
+    ],
+    "steps": [
+      "Interact with multiple distinct qualifying objects before a hunt.",
+      "Listen for a lower fixed pace without chase acceleration.",
+      "Repeat after the reset; moving one object repeatedly is not equivalent."
+    ],
+    "related": [
+      "poltergeist",
+      "thaye"
+    ],
+    "emblem": null,
+    "media": [
+      {
+        "kind": "youtube",
+        "videoId": "F5LabXOPdlA",
+        "title": "Deildegast guide",
+        "author": "Lil_P66",
+        "date": "2026-07-21",
+        "source": "https://www.youtube.com/watch?v=F5LabXOPdlA",
+        "start": 0,
+        "context": "Creator demonstration. Compare the recording with the current field notes; older footage can reflect earlier mechanics."
+      }
+    ],
+    "source": "https://phasmophobia.fandom.com/wiki/Deildegast",
+    "revision": 24662,
+    "reviewedAt": "2026-09-14"
+  }
+]

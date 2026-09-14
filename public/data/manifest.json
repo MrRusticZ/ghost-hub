@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "version": "2026.09.13.1",
-  "updatedAt": "2026-09-13",
+  "version": "2026.09.14.1",
+  "updatedAt": "2026-09-14",
   "files": {
     "catalog": "hub-catalog.json",
     "news": "news.json"

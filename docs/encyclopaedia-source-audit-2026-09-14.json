@@ -1,0 +1,440 @@
+{
+  "reviewedAt": "2026-09-14",
+  "catalogVersion": "2026.09.14.1",
+  "ghostCount": 30,
+  "basis": "Current wiki revisions retrieved through the public MediaWiki API; behaviour sections manually reviewed. Official 0.19.0.0 and 0.19.0.1 patch notes checked for relevant changes. Dated community-reference audit, not independent execution of every game mechanic.",
+  "officialPatchNotes": [
+    "https://kineticgames.co.uk/news/phasmophobia-v01900-quality-of-life-part-2",
+    "https://kineticgames.co.uk/news/phasmophobia-v01901-patch-notes"
+  ],
+  "ghosts": [
+    {
+      "id": "spirit",
+      "name": "Spirit",
+      "evidence": [
+        "emf",
+        "box",
+        "writing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23120,
+      "sourceTimestamp": "2026-04-11T22:37:11Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Spirit",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "wraith",
+      "name": "Wraith",
+      "evidence": [
+        "emf",
+        "box",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 23023,
+      "sourceTimestamp": "2026-03-30T15:03:13Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Wraith",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "phantom",
+      "name": "Phantom",
+      "evidence": [
+        "box",
+        "uv",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24609,
+      "sourceTimestamp": "2026-09-05T05:14:31Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Phantom",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "poltergeist",
+      "name": "Poltergeist",
+      "evidence": [
+        "box",
+        "uv",
+        "writing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24435,
+      "sourceTimestamp": "2026-08-07T20:59:29Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Poltergeist",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "banshee",
+      "name": "Banshee",
+      "evidence": [
+        "uv",
+        "orbs",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24594,
+      "sourceTimestamp": "2026-09-03T00:30:36Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Banshee",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "jinn",
+      "name": "Jinn",
+      "evidence": [
+        "emf",
+        "uv",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24354,
+      "sourceTimestamp": "2026-07-29T06:07:10Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Jinn",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "mare",
+      "name": "Mare",
+      "evidence": [
+        "box",
+        "orbs",
+        "writing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23811,
+      "sourceTimestamp": "2026-06-03T13:36:54Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Mare",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "revenant",
+      "name": "Revenant",
+      "evidence": [
+        "orbs",
+        "writing",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23424,
+      "sourceTimestamp": "2026-05-10T20:27:26Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Revenant",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "shade",
+      "name": "Shade",
+      "evidence": [
+        "emf",
+        "writing",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23207,
+      "sourceTimestamp": "2026-04-17T17:30:31Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Shade",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "demon",
+      "name": "Demon",
+      "evidence": [
+        "uv",
+        "writing",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24442,
+      "sourceTimestamp": "2026-08-11T17:49:22Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Demon",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "yurei",
+      "name": "Yurei",
+      "evidence": [
+        "orbs",
+        "freezing",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24593,
+      "sourceTimestamp": "2026-09-03T00:15:45Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Yurei",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "oni",
+      "name": "Oni",
+      "evidence": [
+        "emf",
+        "freezing",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24610,
+      "sourceTimestamp": "2026-09-05T05:16:45Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Oni",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "yokai",
+      "name": "Yokai",
+      "evidence": [
+        "box",
+        "orbs",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 23421,
+      "sourceTimestamp": "2026-05-07T20:39:55Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Yokai",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "hantu",
+      "name": "Hantu",
+      "evidence": [
+        "uv",
+        "orbs",
+        "freezing"
+      ],
+      "forcedEvidence": "freezing",
+      "revision": 24456,
+      "sourceTimestamp": "2026-08-14T21:22:36Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Hantu",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "goryo",
+      "name": "Goryo",
+      "evidence": [
+        "emf",
+        "uv",
+        "dots"
+      ],
+      "forcedEvidence": "dots",
+      "revision": 23229,
+      "sourceTimestamp": "2026-04-20T02:21:14Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Goryo",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "myling",
+      "name": "Myling",
+      "evidence": [
+        "emf",
+        "uv",
+        "writing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23183,
+      "sourceTimestamp": "2026-04-14T17:34:00Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Myling",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "onryo",
+      "name": "Onryo",
+      "evidence": [
+        "box",
+        "orbs",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24595,
+      "sourceTimestamp": "2026-09-03T00:57:40Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Onryo",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "twins",
+      "name": "The Twins",
+      "evidence": [
+        "emf",
+        "box",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 23225,
+      "sourceTimestamp": "2026-04-18T20:10:26Z",
+      "source": "https://phasmophobia.fandom.com/wiki/The_Twins",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "raiju",
+      "name": "Raiju",
+      "evidence": [
+        "emf",
+        "orbs",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24235,
+      "sourceTimestamp": "2026-07-23T07:29:09Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Raiju",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "obake",
+      "name": "Obake",
+      "evidence": [
+        "emf",
+        "uv",
+        "orbs"
+      ],
+      "forcedEvidence": "uv",
+      "revision": 24341,
+      "sourceTimestamp": "2026-07-27T13:57:58Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Obake",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "mimic",
+      "name": "The Mimic",
+      "evidence": [
+        "box",
+        "uv",
+        "freezing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24359,
+      "sourceTimestamp": "2026-07-30T02:02:30Z",
+      "source": "https://phasmophobia.fandom.com/wiki/The_Mimic",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "moroi",
+      "name": "Moroi",
+      "evidence": [
+        "box",
+        "writing",
+        "freezing"
+      ],
+      "forcedEvidence": "box",
+      "revision": 24626,
+      "sourceTimestamp": "2026-09-11T04:17:05Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Moroi",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "deogen",
+      "name": "Deogen",
+      "evidence": [
+        "box",
+        "writing",
+        "dots"
+      ],
+      "forcedEvidence": "box",
+      "revision": 24658,
+      "sourceTimestamp": "2026-09-13T20:16:09Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Deogen",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "thaye",
+      "name": "Thaye",
+      "evidence": [
+        "orbs",
+        "writing",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 23537,
+      "sourceTimestamp": "2026-05-13T21:49:46Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Thaye",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "dayan",
+      "name": "Dayan",
+      "evidence": [
+        "emf",
+        "orbs",
+        "box"
+      ],
+      "forcedEvidence": null,
+      "revision": 24365,
+      "sourceTimestamp": "2026-07-30T15:44:16Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Dayan",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "gallu",
+      "name": "Gallu",
+      "evidence": [
+        "emf",
+        "uv",
+        "box"
+      ],
+      "forcedEvidence": null,
+      "revision": 24413,
+      "sourceTimestamp": "2026-08-03T16:51:58Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Gallu",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "obambo",
+      "name": "Obambo",
+      "evidence": [
+        "uv",
+        "writing",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24274,
+      "sourceTimestamp": "2026-07-24T04:39:31Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Obambo",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "aswang",
+      "name": "Aswang",
+      "evidence": [
+        "dots",
+        "freezing",
+        "writing"
+      ],
+      "forcedEvidence": null,
+      "revision": 24628,
+      "sourceTimestamp": "2026-09-11T04:21:32Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Aswang",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "kormos",
+      "name": "Kormos",
+      "evidence": [
+        "orbs",
+        "box",
+        "uv"
+      ],
+      "forcedEvidence": null,
+      "revision": 24586,
+      "sourceTimestamp": "2026-08-28T23:52:37Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Kormos",
+      "evidenceMatchesSource": true
+    },
+    {
+      "id": "deildegast",
+      "name": "Deildegast",
+      "evidence": [
+        "emf",
+        "writing",
+        "dots"
+      ],
+      "forcedEvidence": null,
+      "revision": 24662,
+      "sourceTimestamp": "2026-09-13T22:23:41Z",
+      "source": "https://phasmophobia.fandom.com/wiki/Deildegast",
+      "evidenceMatchesSource": true
+    }
+  ],
+  "media": {
+    "references": 37,
+    "originalHostsRetained": true,
+    "rawGameAudioPublished": false,
+    "journalEmblems": 24,
+    "newerGhostEmblems": "Six newer ghosts use stable dossier numbers; no invented journal artwork.",
+    "videoVerification": "Public creator metadata and published chapter markers checked. Source dates shown separately; current written rules take precedence over historical demonstrations."
+  }
+}

@@ -63,12 +63,14 @@ export function GhostTiming({profile,name,settings}:{profile:GhostMechanics;name
   const [imitation,setImitation]=useState('spirit');
   const target=profile.id==='mimic'?mechanicsFor(imitation)??profile:profile;
   const length=huntDuration(settings);
+  const blind=profile.id==='mimic'&&target.id==='moroi'?'5 s':target.blind;
   function begin(seconds:number,label:string){start(seconds,name+' · '+label);notice(name+' · '+label+' timer started ('+seconds+' s).');}
   return <div className="ency-timing">
     <h3><Timer size={17}/>Timing reference</h3>
     {profile.id==='mimic'&&<label>Timing imitation<select aria-label="The Mimic timing imitation" value={imitation} onChange={e=>setImitation(e.target.value)}>{GHOST_MECHANICS.filter(p=>p.id!=='mimic').map(p=><option key={p.id} value={p.id}>{p.id.charAt(0).toUpperCase()+p.id.slice(1)}</option>)}</select></label>}
     <div className="ency-timing-grid"><button className="ency-timer-button" onClick={()=>begin(target.incense,'incense')} aria-label={'Start '+target.incense+' second incense timer for '+name}><Flame size={17}/><span><strong>{target.incense} s</strong>Incense prevention</span><Play size={14}/></button><button className="ency-timer-button" onClick={()=>begin(target.cooldown,'hunt cooldown')} aria-label={'Start '+target.cooldown+' second cooldown timer for '+name}><RotateCcw size={17}/><span><strong>{target.cooldown} s</strong>Hunt cooldown</span><Play size={14}/></button></div>
-    <dl className="ency-facts"><div><dt>Incense blinding</dt><dd>{target.blind}</dd></div><div><dt>Hunt length · current settings</dt><dd>{length} s{target.id==='obambo'?' / '+huntDuration(settings,true)+' s aggressive':''}</dd></div></dl>
+    <dl className="ency-facts"><div><dt>Incense blinding</dt><dd>{blind}</dd></div><div><dt>Hunt length · current settings</dt><dd>{length} s{target.id==='obambo'?' / '+huntDuration(settings,true)+' s aggressive':''}</dd></div></dl>
+    {profile.id==='mimic'&&target.id==='moroi'&&<p>The current Mimic reference reports a 5-second blinding effect when copying Moroi, rather than Moroi's 7 seconds.</p>}
     <div className="ency-hunt-actions"><button className="button" onClick={()=>begin(length,'hunt length')} aria-label={'Start '+length+' second hunt timer for '+name}><Play size={14}/>Time hunt · {length} s</button>{target.id==='obambo'&&<button className="button" onClick={()=>begin(huntDuration(settings,true),'aggressive hunt')}>Aggressive · {huntDuration(settings,true)} s</button>}</div>
     <p>{profile.timing}</p>{profile.id==='mimic'&&<p>{target.timing}</p>}
     <p className="ency-timing-help">Start prevention when incense successfully affects the ghost; using more during an active prevention window does not restart it. Start cooldown when a hunt ends. Cursed hunts bypass these protections.</p>
