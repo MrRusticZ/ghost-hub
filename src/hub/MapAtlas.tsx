@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState, type PointerEvent} from 'react';
-import {ArrowUpRight, Check, ChevronRight, Download, Eye, Ghost, Hand, ImagePlus, Layers, Map as MapIcon, MapPin, Maximize2, Minimize2, Minus, Plus, RotateCcw, Search, Shield, Skull, StickyNote, Trash2, Upload, X, Zap} from 'lucide-react';
+import {ArrowUpRight, Check, ChevronRight, Crosshair, Download, Eye, Hand, ImagePlus, Layers, Map as MapIcon, MapPin, Maximize2, Minimize2, Minus, Plus, RotateCcw, Search, Shield, StickyNote, Trash2, TriangleAlert, Upload, X, Zap} from 'lucide-react';
 import {MAPS} from './content';
 import {route,useHub} from './context';
 import {useChapterState} from './chapterState';
@@ -7,13 +7,15 @@ import {getFloorImage, putFloorImage, removeFloorImage, type FloorImage} from '.
 import {downloadJson, readValue, writeValue} from './storage';
 import {ATLAS_REFERENCES, SUNNY_VARIANTS, atlasFloors, cropStyle, MarkersSchema, parseMarkerImport, type AtlasMarker} from './atlasMaps';
 import {Notice} from './ui';
+import {AtlasFloorPlan} from './AtlasFloorPlan';
+import {HOUSE_PLANS,sourceFrame,markerFrame,convertPoint,containsPoint,roomName,type Frame} from './atlasPlans';
 import './atlas.css';
 
 const MARKER_TOOLS = [
-  {id:'ghost',label:'Ghost room',icon:Ghost},
+  {id:'ghost',label:'Ghost room',icon:Crosshair},
   {id:'breaker',label:'Breaker',icon:Zap},
   {id:'hiding',label:'Hiding spot',icon:Shield},
-  {id:'cursed',label:'Cursed item',icon:Skull},
+  {id:'cursed',label:'Cursed item',icon:TriangleAlert},
   {id:'note',label:'Note',icon:StickyNote},
 ] as const;
 const GROUPS = [
@@ -24,6 +26,19 @@ const GROUPS = [
 ];
 const clamp=(value:number)=>Math.max(0,Math.min(100,value));
 
+function MonitorFilter() {
+  // Flatten chromatic room fills while retaining neutral walls and antialiased text.
+  // This is a reversible display filter; the attributed source images stay intact.
+  return <svg className="atlas-display-filters" aria-hidden="true" focusable="false" width="0" height="0"><defs>
+    <filter id="atlas-monitor-tone" colorInterpolationFilters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="luminance"/>
+      <feColorMatrix in="SourceGraphic" values="1 -1 0 0 0  0 1 -1 0 0  -1 0 1 0 0  0 0 0 1 0" result="channel-differences"/>
+      <feColorMatrix in="channel-differences" values="0 0 0 0 .14  0 0 0 0 .14  0 0 0 0 .14  8 8 8 0 0" result="room-tone"/>
+      <feBlend in="room-tone" in2="luminance" mode="normal"/>
+    </filter>
+  </defs></svg>;
+}
+
 export function MapAtlas() {
   const {session,setSession,notice}=useHub();
   const [selected,setSelected]=useChapterState('MapAtlas-selected',()=>new URLSearchParams(location.hash.split('?')[1]).get('map')??session.map);
@@ -32,6 +47,9 @@ export function MapAtlas() {
   const [label,setLabel]=useChapterState('MapAtlas-label','Ghost room');
   const [zoom,setZoom]=useChapterState('MapAtlas-zoom',100);
   const [view,setView]=useChapterState<'reference'|'personal'>('MapAtlas-view','reference');
+  const [display,setDisplay]=useChapterState<'monitor'|'colour'>('MapAtlas-display','monitor');
+  const [roomId,setRoomId]=useState('');
+  const [roomLabels,setRoomLabels]=useChapterState('MapAtlas-room-labels',true);
   const [variant,setVariant]=useChapterState('MapAtlas-variant','Courtyard');
   const [kind,setKind]=useState<NonNullable<AtlasMarker['kind']>>('ghost');
   const [tool,setTool]=useState<'pan'|'mark'>('pan');
@@ -49,6 +67,7 @@ export function MapAtlas() {
   const [imageFailed,setImageFailed]=useState(false);
   const upload=useRef<HTMLInputElement>(null),importFile=useRef<HTMLInputElement>(null);
   const viewport=useRef<HTMLDivElement>(null),generation=useRef(0);
+  const board=useRef<HTMLDivElement>(null);
   const drag=useRef<{x:number;y:number;left:number;top:number;pointer:number}|null>(null);
   const dragged=useRef(false);
   const map=MAPS.find(m=>m.id===selected)??MAPS.find(m=>m.id==='tanglewood')!;
@@ -60,13 +79,18 @@ export function MapAtlas() {
   const localImage=image?.key===key?image:null;
   const personal=view==='personal';
   const crop=ref.floors[currentFloor]??[0,0,100,100] as const;
-  const ratio=personal?(localImage?localImage.width/localImage.height:1.6):(overview?ref.width/ref.height:ref.width*crop[2]/(ref.height*crop[3]));
-  const boundedZoom=Math.max(100,Math.min(300,Number.isFinite(zoom)?zoom:100));
-  const boardWidth=Math.max(120,Math.min(size.width-56,(size.height-56)*ratio))*boundedZoom/100;
   const current=markers.filter(m=>m.map===map.id&&m.floor===currentFloor&&(m.surface??'personal')===view&&
     (personal||map.id!=='sunny-restricted'||(m.variant??'Courtyard')===currentVariant));
+  const plan=HOUSE_PLANS[map.id]?.[currentFloor];
+  const schematic=!!plan&&!personal&&!overview&&display!=='colour';
+  const canonical=sourceFrame(crop,ref.width,ref.height);
+  const frame:Frame=schematic?markerFrame(plan.bounds,canonical,current):canonical;
+  const activeRoom=plan?.rooms.find(room=>room.id===roomId);
+  const ratio=personal?(localImage?localImage.width/localImage.height:1.6):(overview?ref.width/ref.height:frame[2]/frame[3]);
+  const boundedZoom=Math.max(100,Math.min(300,Number.isFinite(zoom)?zoom:100));
+  const boardWidth=Math.max(120,Math.min(size.width-56,(size.height-56)*ratio))*boundedZoom/100;
   const legacyCount=markers.filter(m=>m.map===map.id&&m.floor===currentFloor&&(m.surface??'personal')==='personal').length;
-  const canMark=!overview&&!imageFailed;
+  const canMark=!overview&&(schematic||!imageFailed);
   const selectedMarker=current.find(m=>m.id===activeId);
   const term=query.trim().toLowerCase();
   const mapQuery=new URLSearchParams(location.hash.split('?')[1]).get('map');
@@ -96,7 +120,8 @@ export function MapAtlas() {
   useEffect(()=>{
     setImageFailed(false);setActiveId('');
     viewport.current?.scrollTo(0,0);
-  },[key,view,variant,overview]);
+  },[key,view,variant,overview,display]);
+  useEffect(()=>setRoomId(''),[key,view,variant]);
   useEffect(()=>{
     if(!expanded)return;
     const previous=document.body.style.overflow;document.body.style.overflow='hidden';
@@ -117,12 +142,24 @@ export function MapAtlas() {
       ...(!personal&&map.id==='sunny-restricted'?{variant:currentVariant}:{})};
     update([...markers,marker]);setActiveId(marker.id);setShowMarkers(true);
   }
+  function selectRoom(id:string) {
+    const room=plan?.rooms.find(r=>r.id===id);setRoomId(room?.id??'');
+    if(room)setLabel((MARKER_TOOLS.find(t=>t.id===kind)!.label+' · '+roomName(room)).slice(0,60));
+  }
+  function addOnBoard(x:number,y:number) {const point=schematic?convertPoint([x,y],frame,canonical):[x,y];add(point[0],point[1]);}
+  function finishPan(e:PointerEvent<HTMLDivElement>) {
+    const wasPan=drag.current;drag.current=null;
+    if(!wasPan||dragged.current||!schematic||!plan||!board.current)return;
+    const rect=board.current.getBoundingClientRect();
+    const point:[number,number]=[frame[0]+(e.clientX-rect.left)/rect.width*frame[2],frame[1]+(e.clientY-rect.top)/rect.height*frame[3]];
+    selectRoom(plan.rooms.find(r=>containsPoint(point,r.points))?.id??'');
+  }
   function chooseMap(id:string) {
     setSelected(id);setFloor('');setZoom(100);setOverview(false);setLocationsOpen(false);setSession({...session,map:id});
     if(mapQuery)route('maps');
   }
   function chooseFloor(value:string) {setFloor(value);setZoom(100);setOverview(false);}
-  function chooseTool(value:typeof MARKER_TOOLS[number]) {setKind(value.id);setLabel(value.label);setTool('mark');setOverview(false);setShowMarkers(true);}
+  function chooseTool(value:typeof MARKER_TOOLS[number]) {setKind(value.id);setLabel(activeRoom?(value.label+' · '+roomName(activeRoom)).slice(0,60):value.label);setTool('mark');setOverview(false);setShowMarkers(true);}
   function startPan(e:PointerEvent<HTMLDivElement>) {
     dragged.current=false;
     if(tool!=='pan'||e.button!==0||(e.target as HTMLElement).closest('button'))return;
@@ -151,10 +188,11 @@ export function MapAtlas() {
     catch{notice('This is not a valid Ghost Hub marker export. Nothing was changed.');}
   }
 
-  return <div className={'atlas-v2'+(expanded?' atlas-expanded':'')}>
+  return <div className={'atlas-v2 atlas-operations'+(expanded?' atlas-expanded':'')} data-display={display==='colour'?'colour':'monitor'} data-schematic={schematic}>
+    <MonitorFilter/>
     <header className="atlas-heading">
-      <div><span className="eyebrow">FIELD KNOWLEDGE / LOCATIONS</span><h1>Map atlas<span>.</span></h1><p>Learn the layout. Mark the room. Know your exit.</p></div>
-      <div className="atlas-heading-actions"><span className="atlas-local-status"><Check size={14}/>Maps included · notes on this device</span><button className="button" onClick={()=>setExpanded(!expanded)} aria-label={expanded?'Close expanded atlas':'Expand atlas'}>{expanded?<Minimize2 size={16}/>:<Maximize2 size={16}/>}<span>{expanded?'Close':'Expand'}</span></button></div>
+      <div><h1>Map atlas</h1><p>Location plans & investigation notes</p></div>
+      <div className="atlas-heading-actions"><span className="atlas-local-status"><Check size={14}/>Notes saved on this device</span><button className="button" onClick={()=>setExpanded(!expanded)} aria-label={expanded?'Close expanded atlas':'Expand atlas'}>{expanded?<Minimize2 size={16}/>:<Maximize2 size={16}/>}<span>{expanded?'Close':'Expand'}</span></button></div>
     </header>
     <div className="atlas-workspace">
       <aside className={'atlas-directory'+(locationsOpen?' is-open':'')} aria-label="Locations">
@@ -169,40 +207,43 @@ export function MapAtlas() {
         </div>
       </aside>
       <section className="atlas-map-section" aria-label={map.name+' map workspace'}>
-        <div className="atlas-map-header"><div><div className="atlas-map-kicker"><span className="atlas-size">{map.type} location</span><span>{map.setting}</span></div><h2>{map.name}</h2></div><span className="atlas-sheet-id">FIELD MAP<br/><strong>{String(MAPS.findIndex(m=>m.id===map.id)+1).padStart(2,'0')}</strong></span></div>
+        <div className="atlas-map-header"><div><div className="atlas-map-kicker"><span className="atlas-size">{map.type}</span><span>{map.setting}</span></div><h2>{map.name}</h2></div><span className="atlas-sheet-id"><strong>{String(floors.length).padStart(2,'0')}</strong>{floors.length===1?'LEVEL / VIEW':'LEVELS / VIEWS'}</span></div>
         <div className="atlas-floorbar"><div className="atlas-floors" aria-label="Map floor">{floors.length>5?<label className="atlas-floor-select"><Layers size={15}/><select aria-label="Select floor" value={currentFloor} onChange={e=>chooseFloor(e.target.value)}>{floors.map(f=><option key={f}>{f}</option>)}</select></label>:floors.map((f,i)=><button key={f} className={f===currentFloor&&!overview?'selected':''} aria-pressed={f===currentFloor&&!overview} onClick={()=>chooseFloor(f)}><span>{f==='Basement'?'B':String(i)}</span>{f}</button>)}</div><button className={'atlas-overview '+(overview?'selected':'')} aria-pressed={overview} disabled={personal} onClick={()=>{setOverview(!overview);setZoom(100);}}><Layers size={15}/>Full sheet</button></div>
         {map.id==='sunny-restricted'&&<div className="atlas-variant"><label htmlFor="atlas-wing">Available wing</label><select id="atlas-wing" value={currentVariant} onChange={e=>{setVariant(e.target.value);setZoom(100);}}>{Object.keys(SUNNY_VARIANTS).map(name=><option key={name}>{name}</option>)}</select></div>}
         {ref.notice&&!personal&&<div className="atlas-reference-warning"><Layers size={15}/><span>{ref.notice} <a href={'https://phasmophobia.fandom.com/wiki/'+map.wiki} target="_blank" rel="noreferrer">Current reference ↗</a></span></div>}
         <div className="atlas-toolbar"><div className="atlas-toolstrip"><button className={tool==='pan'?'active':''} aria-pressed={tool==='pan'} aria-label="Pan map" title="Pan map" onClick={()=>setTool('pan')}><Hand size={17}/></button><span/>{MARKER_TOOLS.map(item=><button key={item.id} className={'atlas-marker-tool kind-'+item.id+(tool==='mark'&&kind===item.id?' active':'')} aria-pressed={tool==='mark'&&kind===item.id} aria-label={'Place '+item.label.toLowerCase()} title={item.label} onClick={()=>chooseTool(item)}><item.icon size={17}/></button>)}</div><div className="atlas-zoom"><button className="icon-button" aria-label="Zoom map out" disabled={boundedZoom<=100} onClick={()=>setZoom(Math.max(100,boundedZoom-25))}><Minus size={17}/></button><output aria-label="Map zoom">{boundedZoom}%</output><button className="icon-button" aria-label="Zoom map in" disabled={boundedZoom>=300} onClick={()=>setZoom(Math.min(300,boundedZoom+25))}><Plus size={17}/></button><button className="icon-button" aria-label="Fit map to view" title="Fit map to view" onClick={()=>{setZoom(100);viewport.current?.scrollTo(0,0);}}><RotateCcw size={15}/></button></div></div>
-        <div ref={viewport} className={'atlas-viewport '+(tool==='pan'?'pan-mode':'mark-mode')} tabIndex={0} role="group" aria-label={map.name+' '+currentFloor+' floorplan. Use zoom controls, or arrow keys to pan.'} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={()=>{drag.current=null;}} onPointerCancel={()=>{drag.current=null;}} onKeyDown={e=>{const offsets:Record<string,[number,number]>={ArrowLeft:[-60,0],ArrowRight:[60,0],ArrowUp:[0,-60],ArrowDown:[0,60]};if(e.target===e.currentTarget&&offsets[e.key]){e.preventDefault();e.currentTarget.scrollBy(...offsets[e.key]);}}}>
+        <div className="atlas-monitorbar"><div><span>{personal?'PERSONAL BOARD':schematic?'ROOM SCHEMATIC':'SITE MAP'}</span><span>{overview?'FULL REFERENCE':currentFloor}</span></div>{!personal&&!overview&&<div className="atlas-display-switch" role="group" aria-label="Reference display"><button aria-pressed={display!=='colour'} onClick={()=>{setDisplay('monitor');setZoom(100);}}>{plan?'Schematic':'Monitor'}</button><button aria-pressed={display==='colour'} onClick={()=>{setDisplay('colour');setZoom(100);}}>Original colour</button></div>}{!personal&&overview&&<span className="atlas-original-caption">Original colour reference</span>}</div>
+        <div ref={viewport} className={'atlas-viewport '+(tool==='pan'?'pan-mode':'mark-mode')+(overview?' is-overview':'')} tabIndex={0} role="group" aria-label={map.name+' '+currentFloor+' floorplan. Use zoom controls, or arrow keys to pan.'} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={finishPan} onPointerCancel={()=>{drag.current=null;}} onKeyDown={e=>{const offsets:Record<string,[number,number]>={ArrowLeft:[-60,0],ArrowRight:[60,0],ArrowUp:[0,-60],ArrowDown:[0,60]};if(e.target===e.currentTarget&&offsets[e.key]){e.preventDefault();e.currentTarget.scrollBy(...offsets[e.key]);}}}>
           <div className="atlas-pan-space" style={{minWidth:boardWidth+56,minHeight:boardWidth/ratio+56}}>
-            <div className={'atlas-board '+(personal&&!imageUrl?'personal-blank':'')} style={{width:boardWidth,height:boardWidth/ratio}} onClick={e=>{if(tool!=='mark'||dragged.current||!canMark)return;const r=e.currentTarget.getBoundingClientRect();add((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100);}}>
-              {personal?(imageUrl&&localImage?<img src={imageUrl} alt={map.name+' '+currentFloor+' floor image supplied by you'} draggable={false} onError={()=>setImageFailed(true)}/>:<div className="atlas-personal-empty"><ImagePlus size={32}/><h3>Your own floor image</h3><p>Upload a screenshot, or place notes on this freeform board.</p><span>Not a floorplan</span></div>):<div className="atlas-floor-crop" style={!overview&&map.id==='point-hope'&&currentFloor==='Floor 10'?{clipPath:'polygon(0 0, 90% 0, 90% 32%, 100% 32%, 100% 100%, 0 100%)'}:undefined}><img key={ref.image} src={ref.image} style={overview?undefined:cropStyle(crop)} alt={map.name+' '+(overview?'complete reference sheet':currentFloor+' floorplan')+' by Fantismal'} draggable={false} onError={()=>setImageFailed(true)}/></div>}
-              {imageFailed&&<div className="atlas-image-error"><MapIcon size={28}/><h3>This floor image could not load</h3><a className="button" href={ref.source} target="_blank" rel="noreferrer">Open source map<ArrowUpRight size={15}/></a></div>}
-              {showMarkers&&!overview&&current.map((m,i)=>{const Icon=MARKER_TOOLS.find(t=>t.id===(m.kind??'note'))!.icon;return <button key={m.id} className={'atlas-pin kind-'+(m.kind??'note')+(m.id===activeId?' active':'')} style={{left:m.x+'%',top:m.y+'%'}} title={m.label} aria-label={'Marker '+(i+1)+': '+m.label} onClick={e=>{e.stopPropagation();setActiveId(m.id);}}><Icon size={17}/><span>{i+1}</span></button>;})}
+            <div ref={board} className={'atlas-board '+(personal&&!imageUrl?'personal-blank':'')} style={{width:boardWidth,height:boardWidth/ratio}} onClick={e=>{if(tool!=='mark'||dragged.current||!canMark)return;const r=e.currentTarget.getBoundingClientRect();addOnBoard((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100);}}>
+              {schematic?<AtlasFloorPlan plan={plan} frame={frame} width={boardWidth} location={map.name} floor={currentFloor} selected={roomId} labels={roomLabels} onSelect={selectRoom}/>:personal?(imageUrl&&localImage?<img src={imageUrl} alt={map.name+' '+currentFloor+' floor image supplied by you'} draggable={false} onError={()=>setImageFailed(true)}/>:<div className="atlas-personal-empty"><ImagePlus size={32}/><h3>Your own floor image</h3><p>Upload a screenshot, or place notes on this freeform board.</p><span>Not a floorplan</span></div>):<div className="atlas-floor-crop" style={!overview&&map.id==='point-hope'&&currentFloor==='Floor 10'?{clipPath:'polygon(0 0, 90% 0, 90% 32%, 100% 32%, 100% 100%, 0 100%)'}:undefined}><img key={ref.image} src={ref.image} style={overview?undefined:cropStyle(crop)} alt={map.name+' '+(overview?'complete reference sheet':currentFloor+' floorplan')+' by Fantismal'} draggable={false} onError={()=>setImageFailed(true)}/></div>}
+              {imageFailed&&!schematic&&<div className="atlas-image-error"><MapIcon size={28}/><h3>This floor image could not load</h3><a className="button" href={ref.source} target="_blank" rel="noreferrer">Open source map<ArrowUpRight size={15}/></a></div>}
+              {showMarkers&&!overview&&current.map((m,i)=>{const Icon=MARKER_TOOLS.find(t=>t.id===(m.kind??'note'))!.icon;const pos=schematic?convertPoint([m.x,m.y],canonical,frame):[m.x,m.y];return <button key={m.id} className={'atlas-pin kind-'+(m.kind??'note')+(m.id===activeId?' active':'')} style={{left:pos[0]+'%',top:pos[1]+'%'}} title={m.label} aria-label={'Marker '+(i+1)+': '+m.label} onClick={e=>{e.stopPropagation();setActiveId(m.id);}}><Icon size={17}/><span>{i+1}</span></button>;})}
             </div>
           </div>
         </div>
-        <div className="atlas-canvas-footer"><span>{overview?'Complete reference sheet · choose a floor to place markers':tool==='pan'?<><Hand size={13}/>Drag to pan · zoom for room detail</>:<><MapPin size={13}/>Click the map to place “{label.trim()||'your marker'}”</>}</span><span><i className={personal?'personal-dot':''}/>{personal?'Personal board':`Reference · ${ref.date}`}</span></div>
+        {schematic&&<div className="atlas-plan-legend"><span><i className="wall-key"/>Walls</span><span><i className="entry-key"/>Entrance</span><span><i className="stair-key"/>Stairs</span><button aria-pressed={roomLabels} onClick={()=>setRoomLabels(!roomLabels)}><Eye size={13}/>{roomLabels?'Hide room labels':'Show room labels'}</button></div>}
+        <div className="atlas-canvas-footer"><span>{overview?'Complete reference sheet · choose a floor to place markers':tool==='pan'?<><Hand size={13}/>{schematic?'Select a room · drag to pan · zoom for detail':'Drag to pan · zoom for room detail'}</>:<><MapPin size={13}/>Click the map to place “{label.trim()||'your marker'}”</>}</span><span><i className={personal?'personal-dot':''}/>{personal?'Personal board':`Reference · ${ref.date}`}</span></div>
         <div className="atlas-source-strip"><span>{personal?(localImage?localImage.name:'Your observations · saved on this device'):<><a href={ref.source} target="_blank" rel="noreferrer">Map by Fantismal <ArrowUpRight size={12}/></a><span>v{ref.version}</span></>}</span><a href={'https://phasmophobia.fandom.com/wiki/'+map.wiki} target="_blank" rel="noreferrer">Location guide<ArrowUpRight size={13}/></a></div>
       </section>
       <aside className="atlas-inspector" aria-label="Investigation markers">
-        <div className="atlas-inspector-title"><span className="eyebrow">YOUR INVESTIGATION</span><h2>Field notes</h2><p>Mark what you find this contract.</p></div>
+        <div className="atlas-inspector-title"><span className="eyebrow">INVESTIGATION</span><h2>Field notes</h2><p>Record what you confirm on site.</p></div>
+        {plan&&!personal&&!overview&&<section className="atlas-room-inspector"><div className="atlas-room-inspector-head"><span>ROOM DIRECTORY</span><span>{plan.rooms.length.toString().padStart(2,'0')}</span></div><label className="atlas-room-select"><span className="sr-only">Select a room</span><select aria-label="Select a room" value={roomId} onChange={e=>selectRoom(e.target.value)}><option value="">Select a room on the plan</option>{plan.rooms.map((room,i)=><option key={room.id} value={room.id}>{String(i+1).padStart(2,'0')} / {roomName(room)}</option>)}</select></label>{activeRoom?<div className="atlas-room-detail"><span>{currentFloor}</span><strong>{roomName(activeRoom)}</strong><button className="button" disabled={!canMark} onClick={()=>{const point=convertPoint([activeRoom.label[0],activeRoom.label[1]],[0,0,100,100],canonical);add(point[0],point[1]);}}><Plus size={14}/>Mark this room</button></div>:<p>Inspect a room, then place an observation.</p>}</section>}
         <div className="atlas-view-switch" aria-label="Map background"><button className={!personal?'selected':''} aria-pressed={!personal} onClick={()=>{setView('reference');setOverview(false);setZoom(100);}}>Reference map</button><button className={personal?'selected':''} aria-pressed={personal} onClick={()=>{setView('personal');setOverview(false);setZoom(100);}}>My board{legacyCount>0&&<span>{legacyCount}</span>}</button></div>
         <div className="atlas-marker-types">{MARKER_TOOLS.map(item=><button key={item.id} className={'kind-'+item.id+(kind===item.id?' selected':'')} aria-pressed={kind===item.id} onClick={()=>chooseTool(item)}><item.icon size={16}/><span>{item.label}</span>{kind===item.id&&<Check size={13}/>}</button>)}</div>
         <label className="atlas-marker-label">Marker label<input value={label} maxLength={60} onChange={e=>setLabel(e.target.value)}/></label>
-        <button className="button atlas-add" disabled={!canMark||!label.trim()} onClick={()=>add(50,50)}><Plus size={16}/>Add at centre</button>
+        <button className="button atlas-add" disabled={!canMark||!label.trim()} onClick={()=>addOnBoard(50,50)}><Plus size={16}/>Add at centre</button>
         <section className="atlas-floor-notes"><div className="atlas-notes-heading"><h3>On this floor <span>{current.length}</span></h3><button className="icon-button" aria-label={showMarkers?'Hide markers':'Show markers'} aria-pressed={showMarkers} onClick={()=>setShowMarkers(!showMarkers)}><Eye size={16}/></button></div>
-          {current.length===0?<p className="atlas-no-markers">No markers yet. Choose a marker, then click a room on the map.</p>:<div className="atlas-marker-list">{current.map((m,i)=><div className={'atlas-note '+(m.id===activeId?'active':'')} key={m.id}><button className="atlas-note-select" onClick={()=>setActiveId(m.id===activeId?'':m.id)}><span className={'atlas-note-number kind-'+(m.kind??'note')}>{i+1}</span><span>{m.label}</span></button><button className="icon-button" aria-label={'Remove '+m.label} onClick={()=>update(markers.filter(x=>x.id!==m.id))}><Trash2 size={14}/></button></div>)}</div>}
+          {current.length===0?<p className="atlas-no-markers">No observations recorded.<br/>Select a tool and mark the map.</p>:<div className="atlas-marker-list">{current.map((m,i)=><div className={'atlas-note '+(m.id===activeId?'active':'')} key={m.id}><button className="atlas-note-select" onClick={()=>setActiveId(m.id===activeId?'':m.id)}><span className={'atlas-note-number kind-'+(m.kind??'note')}>{i+1}</span><span>{m.label}</span></button><button className="icon-button" aria-label={'Remove '+m.label} onClick={()=>update(markers.filter(x=>x.id!==m.id))}><Trash2 size={14}/></button></div>)}</div>}
           {selectedMarker&&<div className="atlas-marker-editor"><label>Selected marker<input aria-label="Rename selected marker" maxLength={60} value={selectedMarker.label} onChange={e=>{if(e.target.value.trim())update(markers.map(m=>m.id===activeId?{...m,label:e.target.value}:m));}}/></label><div>{(['x','y'] as const).map(axis=><label key={axis}>{axis.toUpperCase()} %<input type="number" aria-label={selectedMarker.label+(axis==='x'?' horizontal position':' vertical position')} min={0} max={100} value={Math.round(selectedMarker[axis])} onChange={e=>update(markers.map(m=>m.id===activeId?{...m,[axis]:clamp(Number(e.target.value))}:m))}/></label>)}</div></div>}
         </section>
-        <div className="atlas-field-tip"><Shield size={18}/><div><strong>Scout before the hunt.</strong><p>Hiding places and breaker spawns can vary. Check them in your contract before relying on a marker.</p></div></div>
+        <div className="atlas-field-tip"><Shield size={16}/><div><strong>Verify on site</strong><p>Hiding places and breaker spawns can vary between contracts.</p></div></div>
         <details className="atlas-manage"><summary>Images & backups<ChevronRight size={15}/></summary><div className="atlas-manage-actions"><button className="button" disabled={busy} onClick={()=>upload.current?.click()}><Upload size={15}/>{busy?'Saving image…':'Use my floor image'}</button>{localImage&&<button className="text-link" disabled={busy} onClick={async()=>{const id=generation.current;try{await removeFloorImage(key);if(id===generation.current)setImage(null);notice('Floor image removed. Personal markers retained.');}catch(e){notice((e as Error).message);}}}>Remove my image</button>}<button className="button" onClick={()=>downloadJson('ghost-hub-map-markers.json',{format:'ghost-hub-map-markers-v2',markers})}><Download size={15}/>Export all markers</button><button className="button" onClick={()=>importFile.current?.click()}><Upload size={15}/>Import markers</button><p>Exports include all markers, including your previous boards. Uploaded images stay on this device.</p></div></details>
         <input ref={upload} type="file" hidden accept="image/png,image/jpeg,image/webp" onChange={e=>{const file=e.target.files?.[0];if(file)void loadImage(file);e.target.value='';}}/>
         <input ref={importFile} type="file" hidden accept="application/json,.json" onChange={e=>{const file=e.target.files?.[0];e.target.value='';if(file)void importMarkers(file);}}/>
         {pending&&<Notice>Import {pending.length} markers? This replaces your current markers and keeps your floor images.<div className="button-row"><button className="button" onClick={()=>{update(pending);setPending(null);notice('Map markers imported.');}}>Replace all markers</button><button className="button" onClick={()=>setPending(null)}>Cancel</button></div></Notice>}
       </aside>
     </div>
-    <footer className="atlas-bottom-note"><MapIcon size={15}/><span>Room layouts and reference symbols by <a href="https://imgur.com/a/iEI0tJo" target="_blank" rel="noreferrer">Fantismal</a>. Coloured areas distinguish rooms. Your markers are personal observations.</span></footer>
+    <footer className="atlas-bottom-note"><MapIcon size={15}/><span>{schematic?'Simplified room schematic based on':'Community reference by'} <a href="https://imgur.com/a/iEI0tJo" target="_blank" rel="noreferrer">Fantismal</a>. Use Original colour for room restrictions and item spawns.</span></footer>
   </div>;
 }
