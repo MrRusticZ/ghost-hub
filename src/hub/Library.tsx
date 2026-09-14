@@ -1,21 +1,13 @@
 import {useChapterState} from './chapterState';
 import { useState } from 'react';
-import { ArrowLeft,ArrowRight,ArrowUpRight,BookOpen,Check,Clock,Filter,Ghost,Layers,MapPin,Minus,Plus,Search,ShieldCheck,Trash2 } from 'lucide-react';
-import { Link,imagePath,useHub } from './context';
-import { EVIDENCE,type Candidate } from './model';
+import { ArrowLeft,ArrowRight,ArrowUpRight,BookOpen,Check,Clock,Layers,MapPin,Plus,Search,ShieldCheck,Trash2 } from 'lucide-react';
+import { Link,useHub } from './context';
 import { EQUIPMENT,GUIDES,MAPS } from './content';
-import { Empty,EvidenceTags,GhostCard,Notice,PageHeading,SectionTitle,SourceLink,icons } from './ui';
+import { Empty,Notice,PageHeading,SourceLink,icons } from './ui';
 import { readValue,writeValue } from './storage';
 import { z } from 'zod';
 
-export function GhostLibrary({id}:{id?:string}){
- const {catalog,candidates}=useHub();const [query,setQuery]=useChapterState('GhostLibrary-query',''),[compare,setCompare]=useChapterState<string[]>('GhostLibrary-compare',[]);
- const ghost=catalog.ghosts.find(g=>g.id===id);
- if(id&&!ghost)return <Empty title="Ghost not found">Open the catalogue to choose a supported reference.</Empty>;
- if(ghost)return <><Link className="back-link" to="ghosts"><ArrowLeft size={15}/>Ghost encyclopaedia</Link><div className="dossier-hero"><div><span className="eyebrow">ENTITY DOSSIER / {String(catalog.ghosts.indexOf(ghost)+1).padStart(3,'0')}</span><h1>{ghost.name}</h1><p>{ghost.summary}</p><EvidenceTags evidence={ghost.evidence}/></div><Ghost size={110} strokeWidth={.8}/></div><div className="two-columns"><section className="panel prose"><h2>What to investigate</h2><p>{ghost.test}</p><h3>What can mislead you</h3><p>{ghost.caution}</p>{ghost.forcedEvidence&&<Notice>{EVIDENCE.find(e=>e.id===ghost.forcedEvidence)?.name} is forced when at least one evidence is available. Zero evidence is a separate mode.</Notice>}<Link to="evidence" className="button primary">Compare with your case<ArrowRight size={16}/></Link></section><section className="panel prose"><h2>Evidence checklist</h2>{ghost.evidence.map(e=><div className="reference-row" key={e}><strong>{EVIDENCE.find(x=>x.id===e)?.name}</strong><p>{EVIDENCE.find(x=>x.id===e)?.hint}</p></div>)}<h3>Reference & revision</h3><p className="small muted">Catalog {catalog.version}. {catalog.coverage}</p>{ghost.sources.map(s=><SourceLink key={s} url={s}/>)}</section></div></>;
- const matching=candidates.filter(c=>`${c.ghost.name} ${c.ghost.summary} ${c.ghost.evidence.join(' ')}`.toLowerCase().includes(query.toLowerCase()));
- return <><PageHeading eyebrow="EXPLORE / THE ENTITIES" title="Ghost encyclopaedia" description={`${catalog.ghosts.length} dossiers. Evidence, behaviour, and the details that separate them.`}/><div className="search-toolbar"><div className="input-icon"><Search size={18}/><input aria-label="Search ghosts" placeholder="Search a ghost, behaviour or evidence..." value={query} onChange={e=>setQuery(e.target.value)}/></div><span className="small muted">Select up to 3 to compare</span></div>{compare.length>1&&<section className="comparison panel"><SectionTitle title="Side-by-side comparison"/><div className="compare-grid">{catalog.ghosts.filter(g=>compare.includes(g.id)).map(g=><div key={g.id}><h3>{g.name}</h3><EvidenceTags evidence={g.evidence}/><h4>Distinguishing test</h4><p>{g.test}</p><h4>Watch out for</h4><p>{g.caution}</p></div>)}</div></section>}<div className="ghost-grid library-grid">{matching.map(c=><div key={c.ghost.id}><GhostCard candidate={{...c,eliminated:false}}/><label className="compare-check"><input type="checkbox" aria-label={'Compare '+c.ghost.name} checked={compare.includes(c.ghost.id)} disabled={compare.length>=3&&!compare.includes(c.ghost.id)} onChange={()=>setCompare(compare.includes(c.ghost.id)?compare.filter(x=>x!==c.ghost.id):[...compare,c.ghost.id])}/>Compare {c.ghost.name}</label></div>)}</div>{!matching.length&&<Empty title="No matching dossier">Try the ghost name or a shorter search.</Empty>}</>;
-}
+export {GhostLibrary} from './GhostEncyclopedia';
 export function Equipment({id}:{id?:string}){
  const [query,setQuery]=useChapterState('Equipment-query',''),[category,setCategory]=useChapterState('Equipment-category','All');const item=EQUIPMENT.find(e=>e.id===id);
  if(id&&!item)return <Empty title="Equipment not found">Return to the equipment library.</Empty>;
