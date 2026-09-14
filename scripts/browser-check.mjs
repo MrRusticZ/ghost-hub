@@ -1,0 +1,58 @@
+import { chromium } from '@playwright/test';
+import { mkdir,writeFile } from 'node:fs/promises';
+await mkdir('artifacts',{recursive:true});
+const browser=await chromium.launch({headless:true,...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:process.platform==='win32'?{channel:'msedge'}:{})});
+const page=await browser.newPage({viewport:{width:1440,height:1050},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+await page.screenshot({path:'artifacts/desktop-home.png',fullPage:true,animations:'disabled'});
+const results=[];
+for(const route of ['','evidence','detective','ghosts','ghosts/mimic','maps','equipment','equipment/spirit-box','guides','guides/missing-evidence','updates','updates/willow-quality-of-life','journal','tools','voice','community','chat','submit','settings','about','admin','search','share','case','cursed','cursed/monkey-paw','bugs','appeals','equipment/head-gear']){
+  await page.goto('http://127.0.0.1:5173/#/'+route);
+  await page.locator('main h1').waitFor();
+  const heading=await page.locator('main h1').first().textContent();
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+  results.push({route,heading,overflow});
+}
+await page.goto('http://127.0.0.1:5173/#/evidence');
+await page.getByRole('button',{name:'EMF Level 5: unknown. Click to change.',exact:true}).click();
+await page.getByRole('button',{name:'Ghost Writing: unknown. Click to change.',exact:true}).click();
+await page.screenshot({path:'artifacts/evidence-desktop.png',fullPage:true});
+const names=await page.locator('.ghost-name h3').allTextContents();
+if(!names.includes('Spirit')||!names.includes('Deildegast'))throw Error('Evidence filtering lost compatible ghosts.');
+await page.reload();await page.getByRole('button',{name:'EMF Level 5: found. Click to change.',exact:true}).waitFor();
+await page.goto('http://127.0.0.1:5173/#/detective');
+await page.getByRole('textbox',{name:'Message the Ghost Detective',exact:true}).fill('It is not stepping in salt');
+await page.getByRole('button',{name:'Send to the Detective',exact:true}).click();
+await page.getByRole('button',{name:'Apply observations',exact:true}).waitFor({timeout:25000});
+await page.getByRole('button',{name:'Apply observations',exact:true}).click();
+await page.screenshot({path:'artifacts/detective-desktop.png',fullPage:true});
+await page.goto('http://127.0.0.1:5173/#/journal');
+await page.getByLabel('Investigation name',{exact:true}).fill('Browser checked case');
+await page.getByLabel('Field notes',{exact:true}).fill('Confirmed EMF and writing. Salt crossing remains uncertain.');
+await page.getByRole('button',{name:'Save investigation',exact:true}).click();
+await page.reload();await page.getByRole('heading',{name:'Browser checked case',exact:true}).waitFor();
+await page.goto('http://127.0.0.1:5173/#/tools');
+await page.getByLabel('Custom timer seconds',{exact:true}).fill('1');
+await page.getByRole('button',{name:'Set timer',exact:true}).click();
+await page.getByRole('button',{name:'Start',exact:true}).click();
+await page.locator('.timer-finished').waitFor({timeout:5000});
+const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+mobile.on('pageerror',e=>errors.push(e.message));
+for(const route of ['','evidence','detective','maps','equipment','guides','updates','journal','tools','voice','community','chat','settings','share','cursed','bugs','appeals']){
+  await mobile.goto('http://127.0.0.1:5173/#/'+route);
+  await mobile.locator('main h1').waitFor();
+  const overflow=await mobile.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+  results.push({route,viewport:'mobile',overflow});
+  if(route==='')await mobile.screenshot({path:'artifacts/mobile-home.png',fullPage:true,animations:'disabled'});
+}
+await mobile.getByRole('button',{name:'Toggle navigation',exact:true}).click();
+await mobile.getByRole('link',{name:'Evidence book',exact:true}).first().click();
+await mobile.getByRole('heading',{name:'Evidence book',exact:true}).waitFor();
+await page.emulateMedia({reducedMotion:'reduce'});
+await page.goto('http://127.0.0.1:5173/');
+const reducedMotion=await page.locator('.hero-mist').evaluate(el=>getComputedStyle(el).display==='none');
+await writeFile('artifacts/browser-results.json',JSON.stringify({results,errors,reducedMotion},null,2));
+await browser.close();
+console.log(JSON.stringify({routes:results.length,errors,overflow:results.filter(r=>r.overflow),reducedMotion}));
+if(errors.length||results.some(r=>r.overflow)||!reducedMotion)process.exitCode=1;

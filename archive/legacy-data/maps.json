@@ -1,0 +1,74 @@
+[
+  {
+    "id": "beechy-wood",
+    "name": "Brownstone",
+    "clues": [
+      "Strong ghost room clues in the upper floor",
+      "Closet interactions can expose aggressive hunts"
+    ],
+    "ghostHints": [
+      "Ritual circles often seen once a ghost has multiple evidence signals",
+      "Phasman-type hunts often pause near the hallway"
+    ]
+  },
+  {
+    "id": "tanglewood",
+    "name": "Tanglewood Street House",
+    "clues": [
+      "Long hallways, multiple vent shafts, easy to misread footsteps",
+      "High event variety in first 2 minutes"
+    ],
+    "ghostHints": [
+      "Spirit Box and D.O.T.S. frequently line up quickly",
+      "Freezing drops are common in closed rooms"
+    ]
+  },
+  {
+    "id": "ridgeview",
+    "name": "Ridgeview Road",
+    "clues": [
+      "Open courtyard allows EMF flickers to read from short distances",
+      "Cold spots appear near the porch and back stairwell"
+    ],
+    "ghostHints": [
+      "Often hides evidence behind doors; use UV and Spirit Box together",
+      "Doorway evidence reads can fail in heavy weather events"
+    ]
+  },
+  {
+    "id": "ashwood",
+    "name": "Edgefield",
+    "clues": [
+      "Fast movement checks happen around the kitchen side",
+      "Sanity drains faster during map traversal"
+    ],
+    "ghostHints": [
+      "Ghost writing is more reliable on wooden furniture",
+      "Avoid resetting too many windows for low evidence confidence"
+    ]
+  },
+  {
+    "id": "maple",
+    "name": "Willow Street House",
+    "clues": [
+      "Low ambient light, good for orb-heavy runs",
+      "Multiple false negatives with EMF 5 if too far"
+    ],
+    "ghostHints": [
+      "Use close-range finger tracking on the stairs",
+      "D.O.T.S. can trigger outside the active room"
+    ]
+  },
+  {
+    "id": "withered",
+    "name": "Hanging Hill",
+    "clues": [
+      "Basement routes increase evidence delay",
+      "Cold events can stack with EMF events"
+    ],
+    "ghostHints": [
+      "UV is usually clean near hallway intersections",
+      "Watch for evidence spikes at the moment of hunt"
+    ]
+  }
+]

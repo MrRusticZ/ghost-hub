@@ -1,0 +1,109 @@
+{
+  "lastCheckedAt": null,
+  "reports": [
+    {
+      "id": "september-evidence-fixes",
+      "title": "A strange clue, or a patched bug?",
+      "category": "Patch analysis",
+      "date": "2026-09-10",
+      "version": "0.19.0.1",
+      "summary": "The latest official Steam patch notes address misleading evidence behaviour and several camera problems.",
+      "body": [
+        "The developer reports fixes for the Monkey Paw knowledge wish crossing out correct evidence, UV fingerprints failing to charge on Willow and Nell's Diner, and several black video-camera screen conditions.",
+        "Player impact (analysis): before treating an equipment failure as a ghost tell, confirm your game is updated and repeat the test. The Prison entrance also gains more interactions and fingerprint opportunities.",
+        "This launch summary is checked against the official Steam announcement dated 10 September. It is not a claim that Ghost Hub independently reproduced every fix."
+      ],
+      "sources": [{"title":"Official Steam patch notes: v0.19.0.1","url":"https://store.steampowered.com/news/externalpost/steam_community_announcements/1843481262691864"}],
+      "status": "Official-source launch review",
+      "related": ["equipment", "maps", "guides/missing-evidence"]
+    },
+    {
+      "id": "restricted-routes-team-evidence",
+      "title": "Smaller routes. A better shared journal.",
+      "category": "Patch analysis",
+      "date": "2026-08-25",
+      "version": "0.19.0.0",
+      "summary": "Quality of Life Part 2 introduces restricted versions of Prison, Brownstone High School and Point Hope.",
+      "body": [
+        "Kinetic and its Steam announcement describe three restricted map variants, duplicate-capture indicators, and visibility of teammates' evidence and ghost selections in the journal.",
+        "Player impact (analysis): agree which map variant the team selected before using an old route guide. Compare journal selections instead of assuming everyone recorded the same clue.",
+        "A subsequent September patch revises several issues from this release. Consult the newer report before relying on the original known-issues list. These are two official posts about one release, not independent gameplay tests."
+      ],
+      "sources": [{"title":"Kinetic Games: Quality of Life Part 2","url":"https://kineticgames.co.uk/news/phasmophobia-v01900-quality-of-life-part-2"},{"title":"Official Steam announcement: v0.19.0.0","url":"https://store.steampowered.com/news/externalpost/steam_community_announcements/1841579228678571"}],
+      "status": "Cross-platform launch review",
+      "related": ["maps", "journal"]
+    },
+    {
+      "id": "willow-quality-of-life",
+      "title": "Willow has changed. So should your route.",
+      "category": "Patch analysis",
+      "date": "2026-07-21",
+      "version": "0.18.0.0",
+      "summary": "The reworked 13 Willow Street and a new ghost make older routes and evidence charts worth revisiting.",
+      "body": [
+        "The July quality-of-life release reworks 13 Willow Street and introduces the Deildegast. Treat pre-update location guides as historical until their layouts have been checked.",
+        "For investigators: confirm equipment controls and review the new ghost's evidence before interpreting an unfamiliar combination as a bug. This is Ghost Hub's practical interpretation of the announced changes."
+      ],
+      "sources": [
+        {
+          "title": "Kinetic Games: quality-of-life preview",
+          "url": "https://www.kineticgames.co.uk/news/phasmophobia-quality-of-life-preview-2"
+        },
+        {
+          "title": "Official Steam announcements",
+          "url": "https://store.steampowered.com/oldnews/?appgroupname=Phasmophobia&appids=739630&feed=steam_community_announcements&headlines=0&l=english"
+        }
+      ],
+      "status": "Editor-reviewed",
+      "related": [
+        "maps",
+        "ghosts/deildegast"
+      ]
+    },
+    {
+      "id": "road-to-one",
+      "title": "The road to 1.0: quality comes first.",
+      "category": "Development",
+      "date": "2026-06-24",
+      "version": "Roadmap",
+      "summary": "Kinetic's revised outlook moves 1.0 to 2027 and puts fixes and quality-of-life work at the centre of 2026.",
+      "body": [
+        "Kinetic Games' revised outlook places Phasmophobia 1.0 in 2027, with quality-of-life work and an engine update forming part of the intervening plans.",
+        "For players: older release-roadmap graphics should not be treated as current commitments. Plans describe intent, not a shipped game feature."
+      ],
+      "sources": [
+        {
+          "title": "Kinetic Games: 2026 and beyond",
+          "url": "https://www.kineticgames.co.uk/news/phasmophobia-2026-and-beyond"
+        }
+      ],
+      "status": "Editor-reviewed",
+      "related": [
+        "guides"
+      ]
+    },
+    {
+      "id": "mimic-field-note",
+      "title": "Three clues. One very convincing impostor.",
+      "category": "Field note",
+      "date": "2026-09-13",
+      "version": "Reference",
+      "summary": "Why The Mimic stays in your candidate list when ghost orbs seem to rule it out.",
+      "body": [
+        "The Mimic has its own evidence combination and produces extra ghost orbs. Those orbs sit outside the difficulty's normal evidence allowance, including on zero-evidence contracts.",
+        "Ghost Hub checks possible evidence sets rather than simply matching three checkboxes. Behavioural tells still need context because The Mimic can copy another ghost's behaviour."
+      ],
+      "sources": [
+        {
+          "title": "Phasmophobia Wiki: The Mimic",
+          "url": "https://phasmophobia.fandom.com/wiki/The_Mimic"
+        }
+      ],
+      "status": "Reference note",
+      "related": [
+        "evidence",
+        "ghosts/mimic"
+      ]
+    }
+  ]
+}

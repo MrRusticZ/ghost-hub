@@ -1,0 +1,462 @@
+{
+  "version": "2026.09.13.1",
+  "reviewedAt": "2026-09-13",
+  "coverage": "Evidence reference snapshot including Deildegast. Behaviour coverage is selective; check sources after game updates.",
+  "ghosts": [
+    {
+      "id": "spirit",
+      "name": "Spirit",
+      "evidence": [
+        "emf",
+        "box",
+        "writing"
+      ],
+      "summary": "An ordinary-looking ghost with an unusually long incense hunt-prevention window.",
+      "test": "Time a confirmed incense cleanse. A normal hunt inside three minutes conflicts with Spirit; waiting longer alone does not prove it.",
+      "caution": "Do not confuse hunt prevention with the brief protection during an active hunt.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Spirit"
+      ]
+    },
+    {
+      "id": "wraith",
+      "name": "Wraith",
+      "evidence": [
+        "emf",
+        "box",
+        "dots"
+      ],
+      "summary": "A roaming suspect that does not disturb salt.",
+      "test": "Confirm that the ghost actually crossed the pile. An untouched pile by itself proves nothing.",
+      "caution": "Gallu can also avoid salt in its enraged state, and The Mimic can copy behaviour.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Wraith"
+      ]
+    },
+    {
+      "id": "phantom",
+      "name": "Phantom",
+      "evidence": [
+        "box",
+        "uv",
+        "dots"
+      ],
+      "summary": "Known for long invisible intervals during a hunt.",
+      "test": "Observe visibility carefully or investigate its photograph interaction outside a hunt.",
+      "caution": "A photo taken as an event ends is not a reliable confirmation.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Phantom"
+      ]
+    },
+    {
+      "id": "poltergeist",
+      "name": "Poltergeist",
+      "evidence": [
+        "box",
+        "uv",
+        "writing"
+      ],
+      "summary": "Look for a burst of several object throws at once.",
+      "test": "Gather loose objects and watch for a simultaneous multi-throw.",
+      "caution": "One impressive throw is not enough. Keep The Mimic in consideration.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Poltergeist"
+      ]
+    },
+    {
+      "id": "banshee",
+      "name": "Banshee",
+      "evidence": [
+        "uv",
+        "orbs",
+        "dots"
+      ],
+      "summary": "Its target-focused behaviour and special microphone scream can be useful clues.",
+      "test": "Listen with a parabolic microphone and compare the sound against a trusted reference.",
+      "caution": "Ordinary singing is not the distinctive Banshee scream.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Banshee"
+      ]
+    },
+    {
+      "id": "jinn",
+      "name": "Jinn",
+      "evidence": [
+        "emf",
+        "uv",
+        "freezing"
+      ],
+      "summary": "Fuse-box power affects its special chase behaviour.",
+      "test": "Record whether the ghost directly switches the breaker off, excluding overloads.",
+      "caution": "Ordinary electrical activity does not establish a Jinn.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Jinn"
+      ]
+    },
+    {
+      "id": "mare",
+      "name": "Mare",
+      "evidence": [
+        "box",
+        "orbs",
+        "writing"
+      ],
+      "summary": "Light conditions matter to this ghost's hunting behaviour.",
+      "test": "Observe actual light-switch interactions, distinguishing lights from the breaker.",
+      "caution": "A light switched off just after you turn it on can happen by chance.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Mare"
+      ]
+    },
+    {
+      "id": "revenant",
+      "name": "Revenant",
+      "evidence": [
+        "orbs",
+        "writing",
+        "freezing"
+      ],
+      "summary": "Its hunt speed differs sharply when it detects a player.",
+      "test": "Compare footsteps while undetected with a controlled observation of detection.",
+      "caution": "Speed settings and detection conditions matter; do not assume every fast ghost is a Revenant.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Revenant"
+      ]
+    },
+    {
+      "id": "shade",
+      "name": "Shade",
+      "evidence": [
+        "emf",
+        "writing",
+        "freezing"
+      ],
+      "summary": "Its activity can be suppressed by players near it.",
+      "test": "Give it room and retry evidence collection from outside its current room.",
+      "caution": "A quiet investigation is not enough to identify a Shade.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Shade"
+      ]
+    },
+    {
+      "id": "demon",
+      "name": "Demon",
+      "evidence": [
+        "uv",
+        "writing",
+        "freezing"
+      ],
+      "summary": "Can attempt unusually early hunts.",
+      "test": "Record the exact circumstances and timing of an early normal hunt.",
+      "caution": "Cursed hunts and other special abilities can also produce early hunts.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Demon"
+      ]
+    },
+    {
+      "id": "yurei",
+      "name": "Yurei",
+      "evidence": [
+        "orbs",
+        "freezing",
+        "dots"
+      ],
+      "summary": "Certain door interactions can be more informative than ordinary activity.",
+      "test": "Distinguish an ability-related door closure from a door closing during an event.",
+      "caution": "A slammed door on its own is not a confirmation.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Yurei"
+      ]
+    },
+    {
+      "id": "oni",
+      "name": "Oni",
+      "evidence": [
+        "emf",
+        "freezing",
+        "dots"
+      ],
+      "summary": "Hunt visibility is useful when comparing it with a Phantom.",
+      "test": "Compare visible and invisible intervals during a clear hunt observation.",
+      "caution": "General activity and frequent events are only supporting clues.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Oni"
+      ]
+    },
+    {
+      "id": "yokai",
+      "name": "Yokai",
+      "evidence": [
+        "box",
+        "orbs",
+        "dots"
+      ],
+      "summary": "Voice proximity and limited detection during hunts affect its behaviour.",
+      "test": "Compare detection cautiously while accounting for walls, distance and equipment.",
+      "caution": "A single missed detection is inconclusive.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Yokai"
+      ]
+    },
+    {
+      "id": "hantu",
+      "name": "Hantu",
+      "evidence": [
+        "uv",
+        "orbs",
+        "freezing"
+      ],
+      "summary": "Its movement is linked to room temperature.",
+      "test": "Compare hunt pace across warmer and colder rooms.",
+      "caution": "It must provide freezing when the contract gives at least one evidence.",
+      "forcedEvidence": "freezing",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Hantu"
+      ]
+    },
+    {
+      "id": "goryo",
+      "name": "Goryo",
+      "evidence": [
+        "emf",
+        "uv",
+        "dots"
+      ],
+      "summary": "Its D.O.T.S. silhouette is camera-only, under the right room conditions.",
+      "test": "Observe D.O.T.S. through a camera with nobody in the ghost's room, then compare direct viewing.",
+      "caution": "Seeing D.O.T.S. on camera alone is not unique; many ghosts appear on camera.",
+      "forcedEvidence": "dots",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Goryo"
+      ]
+    },
+    {
+      "id": "myling",
+      "name": "Myling",
+      "evidence": [
+        "emf",
+        "uv",
+        "writing"
+      ],
+      "summary": "Its quieter hunt sounds can help distinguish it.",
+      "test": "Compare audible footsteps and nearby electronics carefully on the same floor.",
+      "caution": "Different floors, sound settings and distance can mislead.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Myling"
+      ]
+    },
+    {
+      "id": "onryo",
+      "name": "Onryo",
+      "evidence": [
+        "box",
+        "orbs",
+        "freezing"
+      ],
+      "summary": "Flames interact with its hunt behaviour.",
+      "test": "Track extinguished flames and hunt attempts with protection in place.",
+      "caution": "One candle going out is normal behaviour, not a confirmation.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Onryo"
+      ]
+    },
+    {
+      "id": "twins",
+      "name": "The Twins",
+      "evidence": [
+        "emf",
+        "box",
+        "freezing"
+      ],
+      "summary": "Interactions and hunt pace may suggest different activity locations.",
+      "test": "Log successive interactions and compare multiple hunts under similar conditions.",
+      "caution": "There are not two independently hunting ghosts.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/The_Twins"
+      ]
+    },
+    {
+      "id": "raiju",
+      "name": "Raiju",
+      "evidence": [
+        "emf",
+        "orbs",
+        "dots"
+      ],
+      "summary": "Active electronic equipment can affect its hunt speed.",
+      "test": "Compare its pace near and away from active equipment.",
+      "caution": "Touching electrical objects often is not the same as this speed effect.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Raiju"
+      ]
+    },
+    {
+      "id": "obake",
+      "name": "Obake",
+      "evidence": [
+        "emf",
+        "uv",
+        "orbs"
+      ],
+      "summary": "Unusual UV prints and a brief model change during a hunt are notable clues.",
+      "test": "Inspect prints promptly and look for a clearly different model during a hunt.",
+      "caution": "Missing one print does not safely rule out ultraviolet.",
+      "forcedEvidence": "uv",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Obake"
+      ]
+    },
+    {
+      "id": "mimic",
+      "name": "The Mimic",
+      "evidence": [
+        "box",
+        "uv",
+        "freezing"
+      ],
+      "summary": "Copies behaviours while retaining its own evidence and extra ghost orbs.",
+      "test": "Check for orbs even when the difficulty gives no evidence.",
+      "caution": "Orbs are additional to its evidence budget, and copied behaviour can imitate another ghost.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/The_Mimic"
+      ]
+    },
+    {
+      "id": "moroi",
+      "name": "Moroi",
+      "evidence": [
+        "box",
+        "writing",
+        "freezing"
+      ],
+      "summary": "Its hunt pace changes with team sanity.",
+      "test": "Compare pace only when sanity and speed modifiers are known.",
+      "caution": "Spirit Box is forced when at least one evidence is available.",
+      "forcedEvidence": "box",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Moroi"
+      ]
+    },
+    {
+      "id": "deogen",
+      "name": "Deogen",
+      "evidence": [
+        "box",
+        "writing",
+        "dots"
+      ],
+      "summary": "Fast when far away, much slower near its target; hiding is not its usual counter.",
+      "test": "Check for the distinctive close-range Spirit Box breathing response.",
+      "caution": "Do not start a hunt test without an escape route and an understanding of its tracking.",
+      "forcedEvidence": "box",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Deogen"
+      ]
+    },
+    {
+      "id": "thaye",
+      "name": "Thaye",
+      "evidence": [
+        "orbs",
+        "writing",
+        "dots"
+      ],
+      "summary": "Can become less active and slower as it ages near players.",
+      "test": "Compare activity and hunt pace over time with controlled settings.",
+      "caution": "A single slow hunt does not prove ageing.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Thaye"
+      ]
+    },
+    {
+      "id": "dayan",
+      "name": "Dayan",
+      "evidence": [
+        "emf",
+        "orbs",
+        "box"
+      ],
+      "summary": "Nearby player movement can alter its behaviour.",
+      "test": "Record whether movement near the ghost consistently changes its hunt pace.",
+      "caution": "Other nearby players can affect the comparison.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Dayan"
+      ]
+    },
+    {
+      "id": "gallu",
+      "name": "Gallu",
+      "evidence": [
+        "emf",
+        "uv",
+        "box"
+      ],
+      "summary": "Protective equipment can change its state.",
+      "test": "Record salt interactions and protection use together, rather than in isolation.",
+      "caution": "An enraged Gallu can leave salt undisturbed, so salt avoidance is not exclusive to Wraith.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Gallu"
+      ]
+    },
+    {
+      "id": "obambo",
+      "name": "Obambo",
+      "evidence": [
+        "uv",
+        "writing",
+        "dots"
+      ],
+      "summary": "Alternates between calm and aggressive states.",
+      "test": "Compare multiple hunts and record when its behaviour changes.",
+      "caution": "Its state can change; one observation is only part of the picture.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Obambo"
+      ]
+    },
+    {
+      "id": "aswang",
+      "name": "Aswang",
+      "evidence": [
+        "dots",
+        "freezing",
+        "writing"
+      ],
+      "summary": "A newer entry in the reference catalog.",
+      "test": "Prioritise confirmed evidence and consult the linked reference before using specialised tests.",
+      "caution": "Advanced behaviour rules are not used for automatic elimination in this release.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Aswang"
+      ]
+    },
+    {
+      "id": "kormos",
+      "name": "Kormos",
+      "evidence": [
+        "orbs",
+        "box",
+        "uv"
+      ],
+      "summary": "A newer ghost whose hearing is especially important.",
+      "test": "Consult the current source before attempting movement-based tests.",
+      "caution": "Advanced behaviour rules are not used for automatic elimination in this release.",
+      "sources": [
+        "https://phasmophobia.fandom.com/wiki/Kormos"
+      ]
+    },
+    {
+      "id": "deildegast",
+      "name": "Deildegast",
+      "evidence": [
+        "emf",
+        "writing",
+        "dots"
+      ],
+      "summary": "Introduced with the July 2026 quality-of-life update.",
+      "test": "Collect its evidence combination; consult current research for item-related speed tests.",
+      "caution": "Its newer behavioural mechanics are not used for automatic elimination in this release.",
+      "sources": [
+        "https://games.gg/phasmophobia/guides/phasmophobia-how-to-identify-a-deildegast/"
+      ]
+    }
+  ]
+}

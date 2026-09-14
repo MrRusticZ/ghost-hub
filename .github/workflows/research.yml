@@ -1,0 +1,47 @@
+name: Research Phasmophobia updates
+on:
+  schedule:
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ghost-hub-research
+  cancel-in-progress: false
+jobs:
+  research:
+    if: vars.RESEARCH_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Research and review approved public sources
+        env:
+          RESEARCH_ENABLED: 'true'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RESEARCH_MODEL: ${{ vars.RESEARCH_MODEL }}
+          RESEARCH_REVIEW_MODEL: ${{ vars.RESEARCH_REVIEW_MODEL }}
+          RESEARCH_MAX_REPORTS: '2'
+        run: npm run research
+      - name: Validate all content and tools
+        run: npm run check
+      - name: Commit only reviewed report data
+        run: |
+          git config user.name 'ghost-hub-research[bot]'
+          git config user.email 'ghost-hub-research[bot]@users.noreply.github.com'
+          git add public/data/news.json public/data/research-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh source-reviewed Phasmophobia reports'
+            git push
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-audit
+          path: artifacts/research/
+          retention-days: 14

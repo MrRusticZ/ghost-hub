@@ -1,0 +1,295 @@
+:root {
+  --bg: #0d1117;
+  --surface: #141b23;
+  --surface-soft: #1c2531;
+  --text: #e9eef8;
+  --muted: #9fb0c9;
+  --border: #2b3c4e;
+  --focus: #67a1ff;
+  --success: #1ea55e;
+  --warning: #e2a12c;
+  --danger: #ef4d4d;
+  --chip: #203246;
+  --chip-include: #1f4034;
+  --chip-exclude: #43263a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at 20% 0%, #16212f 0%, #0d1117 45%);
+  color: var(--text);
+}
+
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.hero {
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(130deg, rgba(28, 39, 55, 0.95), rgba(19, 29, 40, 0.7));
+  border: 1px solid var(--border);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0 0 8px;
+}
+
+.warn {
+  color: var(--warning);
+}
+
+.nav {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.tab-btn {
+  border: 1px solid transparent;
+  background: #1b2735;
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  border-color: var(--focus);
+  background: #24374c;
+}
+
+main section,
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip,
+.chip-toggle,
+.outline-btn,
+button,
+input,
+select,
+textarea {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--chip);
+  color: var(--text);
+  padding: 8px 12px;
+}
+
+.chip-toggle {
+  cursor: pointer;
+}
+
+.chip-toggle.excluded {
+  border-color: var(--danger);
+  background: var(--chip-exclude);
+}
+
+.chip-toggle.included {
+  border-color: var(--success);
+  background: var(--chip-include);
+}
+
+.chip--outline {
+  border-radius: 999px;
+}
+
+button {
+  background: #1f3348;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+label.label-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.ghosts-grid,
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.ghost-card {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.ghost-card__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ghost-card__score {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.ghost-section {
+  margin-top: 12px;
+}
+
+.ghost-section ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.ghost-card__difficulty {
+  border-color: var(--focus);
+  color: #8fc7ff;
+}
+
+.timer-panel {
+  display: grid;
+  gap: 10px;
+}
+
+.timer-display {
+  display: grid;
+  gap: 6px;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+}
+
+.snapshot {
+  border: 1px solid var(--border);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.snapshot-box {
+  white-space: pre-wrap;
+  background: #1b2c41;
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 8px;
+  margin: 8px 0 0;
+  overflow-x: auto;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.outline-btn {
+  cursor: pointer;
+  background: #1f3348;
+  border-radius: 10px;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.danger {
+  color: #ffd5d5;
+  background: #522a2f;
+}
+
+@media (max-width: 860px) {
+  .section-header {
+    flex-direction: column;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}

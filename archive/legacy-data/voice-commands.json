@@ -1,0 +1,32 @@
+[
+  {
+    "id": "voice.clear",
+    "intent": "clear",
+    "examples": ["clear", "clear all", "start over", "reset finder"]
+  },
+  {
+    "id": "voice.include",
+    "intent": "includeEvidence",
+    "examples": ["add emf", "include spirit box", "saw fingerprints"]
+  },
+  {
+    "id": "voice.exclude",
+    "intent": "excludeEvidence",
+    "examples": ["exclude ghost writing", "not seen d o t s", "remove uv"]
+  },
+  {
+    "id": "voice.timer",
+    "intent": "timer",
+    "examples": ["start timer 3", "run timer for 5", "set timer 90 seconds"]
+  },
+  {
+    "id": "voice.snapshot",
+    "intent": "snapshot",
+    "examples": ["snapshot", "save my state", "journal note"]
+  },
+  {
+    "id": "voice.view",
+    "intent": "switchView",
+    "examples": ["open maps", "go to tools", "show journal"]
+  }
+]

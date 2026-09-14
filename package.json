@@ -1,0 +1,40 @@
+{
+  "name": "ghost-hub",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "tsx --test tests/*.test.ts",
+    "server": "node --env-file-if-exists=.env server/index.mjs",
+    "research": "node --env-file-if-exists=.env scripts/research.mjs",
+    "check": "npm run test && npm run build",
+    "start": "node scripts/start.mjs",
+    "test:browser": "node scripts/browser-check.mjs && node scripts/extended-browser-check.mjs && node scripts/chat-browser-check.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.2.0",
+    "@fontsource/dm-sans": "^5.2.0",
+    "@fontsource/lora": "^5.2.0",
+    "lucide-react": "^0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "18.3.0",
+    "@types/react-dom": "18.3.0",
+    "@vitejs/plugin-react": "5.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "5.7.2",
+    "vite": "^6.4.0",
+    "yaml": "^2.9.1"
+  }
+}

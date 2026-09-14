@@ -1,0 +1,65 @@
+name: Deploy Ghost Hub
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Research Phasmophobia updates]
+    branches: [main]
+    types: [completed]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: ghost-hub-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/configure-pages@v5
+        id: pages
+      - run: npm ci
+      - name: Validate and build for the repository path
+        env:
+          GH_PAGES_BASE: ${{ steps.pages.outputs.base_path }}/
+          VITE_API_BASE: ${{ vars.VITE_API_BASE }}
+        run: npm run check
+      - name: Install the browser check runtime
+        run: npx playwright install --with-deps chromium
+      - name: Check real pages, offline loading and community flows
+        env:
+          GH_PAGES_BASE: /
+          PREVIEW_BASE: ${{ steps.pages.outputs.base_path }}/
+          PRODUCTION_PREVIEW_URL: http://127.0.0.1:4173${{ steps.pages.outputs.base_path }}/
+        run: |
+          npm run server > /tmp/ghost-hub-community.log 2>&1 &
+          npm run dev -- --strictPort > /tmp/ghost-hub-vite.log 2>&1 &
+          node scripts/preview-production.mjs > /tmp/ghost-hub-preview.log 2>&1 &
+          node scripts/wait-for-preview.mjs
+          npm run test:browser
+      - name: Save browser check evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-checks
+          path: artifacts/
+          retention-days: 7
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Publish GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
