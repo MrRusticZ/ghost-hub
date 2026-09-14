@@ -6,8 +6,8 @@ const base=process.env.ATLAS_TEST_URL??'http://127.0.0.1:5173/';
 const browser=await chromium.launch({headless:true,...(process.platform==='win32'?{channel:'msedge'}:{})});
 const results=[],errors=[];
 await mkdir('artifacts/atlas',{recursive:true});
-async function context(viewport={width:1920,height:1080}){
-  const c=await browser.newContext({viewport,reducedMotion:'reduce'});
+async function context(viewport={width:1920,height:1080},options={}){
+  const c=await browser.newContext({viewport,reducedMotion:'reduce',...options});
   await c.addInitScript(()=>{if(location.protocol==='http:'||location.protocol==='https:')localStorage.setItem('ghost-hub:effects','false');});
   c.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));
   return c;
@@ -87,7 +87,9 @@ try{
   await r.getByRole('button',{name:'Hide room labels',exact:true}).click();assert.equal(await r.locator('.atlas-plan-label').count(),0);await r.getByRole('button',{name:'Show room labels',exact:true}).click();
   await r.getByRole('button',{name:'Mark this room',exact:true}).click();const roomMarker=(await stored(r))[0];assert.match(roomMarker.label,/Master bedroom/);assert.ok(Math.abs(roomMarker.x-(305-39.15)/704.7*100)<.001);assert.ok(Math.abs(roomMarker.y-(423-276.21)/481.14*100)<.001);
   await r.getByRole('button',{name:'Original colour',exact:true}).click();await ready(r);assert.ok(Math.abs(parseFloat(await r.locator('.atlas-pin').evaluate(e=>e.style.left))-roomMarker.x)<.001);await rooms.close();results.push('Rooms support mouse and keyboard selection, label visibility and room-centred markers aligned to the original source');
-  const failed=await context(),f=await failed.newPage();await f.route('**/*tanglewood*.png*',route=>route.request().resourceType()==='image'?route.abort():route.continue());await f.goto(base+'#/maps');await ready(f);await f.getByRole('button',{name:'Original colour',exact:true}).click();await f.getByRole('heading',{name:'This floor image could not load',exact:true}).waitFor();assert.equal(await f.getByRole('button',{name:'Add at centre',exact:true}).isDisabled(),true);await f.getByRole('button',{name:'Schematic',exact:true}).click();await ready(f);assert.equal(await f.getByRole('button',{name:'Add at centre',exact:true}).isDisabled(),false);await failed.close();results.push('A failed reference image shows an actionable error; the independent room schematic remains available');
+  // Disable the production service worker here so a cached image cannot mask
+  // the deliberately failed transport. Offline recovery is tested separately.
+  const failed=await context(undefined,{serviceWorkers:'block'}),f=await failed.newPage();await f.route('**/*tanglewood*.png*',route=>route.request().resourceType()==='image'?route.abort():route.continue());await f.goto(base+'#/maps');await ready(f);await f.getByRole('button',{name:'Original colour',exact:true}).click();await f.getByRole('heading',{name:'This floor image could not load',exact:true}).waitFor();assert.equal(await f.getByRole('button',{name:'Add at centre',exact:true}).isDisabled(),true);await f.getByRole('button',{name:'Schematic',exact:true}).click();await ready(f);assert.equal(await f.getByRole('button',{name:'Add at centre',exact:true}).isDisabled(),false);await failed.close();results.push('A failed reference image shows an actionable error; the independent room schematic remains available');
   assert.deepEqual(errors,[]);await writeFile('artifacts/atlas/results.json',JSON.stringify({results,errors},null,2));console.log(JSON.stringify({results,errors},null,2));
 }finally{await browser.close();}
 
