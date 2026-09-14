@@ -39,4 +39,10 @@ These are community reference facts checked during development, not measurements
 
 Evidence: `artifacts/encyclopedia/browser-results.json`, `production-offline-results.json`, and the desktop/mobile screenshots in the same directory. Browser audio checks inspect real scheduled buffers and timing; no claim is made about a human speaker/headphone listening review.
 
-The existing atlas work, previous encyclopedia planning documents and other in-progress workspace changes were not included in this implementation's source edits. The wider pre-existing browser suite was not rerun end-to-end; the focused encyclopedia suite exercised the shared timer and Casebook integration.
+The existing atlas work, previous encyclopedia planning documents and other in-progress workspace changes were not included in this implementation's source edits.
+
+## Release preparation
+
+A clean checkout passed all 218 unit tests, the `/ghost-hub/` production build and the encyclopedia browser suite. The initial deployment run passed the general page, offline-loading and community browser checks, then identified an outdated Casebook assertion for the previous encyclopedia card class. That assertion now counts the shared `data-ghost-entry` marker used by all three listing views.
+
+The complete Casebook suite passed against the clean production build after this update: 228 route/theme/viewport checks, 189 direct destinations and refreshes, state and timer continuity, offline behavior, and all accessibility scans. Publication remains gated on the full GitHub Actions browser suite.
