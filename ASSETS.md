@@ -1,5 +1,13 @@
 # Ghost Hub assets and source policy
 
+## Cursed possession reference media (14 September 2026)
+
+The cursed collection bundles 30 credited game-reference assets: seven object photographs, ten tarot faces, seven map-specific location examples, two broken-object photographs, and four silent gameplay animations. `src/hub/cursed-media.json` records the source file page, original URL, delivered URL, uploader, source upload date, dimensions, byte count, SHA-256 and animation status for every file in `src/hub/assets/cursed/`.
+
+These are original game captures from the Phasmophobia community wiki, delivered as WebP by its image CDN. They have not been AI generated or retouched. Credits link to the original file pages. Game imagery belongs to Kinetic Games; uploader attribution does not imply an open licence. These limited illustrations support identification and commentary in this unofficial wiki and are excluded from any source-code licence.
+
+The four animations play only after a deliberate button press and include stop controls. Insym's archived v0.9 guide remains on YouTube, with seven timestamped chapters, a click-to-load privacy-enhanced player, and a direct-link fallback. No creator video or audio is republished as a local asset. Historical dates and version differences are disclosed beside the media. See [the cursed reference and validation record](docs/cursed-possessions-upgrade.md).
+
 ## Original artwork
 
 `public/assets/haunted-house.png` is original atmospheric artwork generated for this project with the built-in image-generation tool on 13 September 2026. It is a 1536 by 1024 image, not a Phasmophobia screenshot or floorplan.
