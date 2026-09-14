@@ -39,6 +39,7 @@ export function nextTest(candidates:Candidate[],session:Session) {
 export type ParsedObservation={id:string;label:string;type:'evidence'|'observation';state?:'found'|'ruled-out'|'unknown'};
 const aliases:Record<Evidence,string[]>={emf:['emf 5','emf five','emf level 5'],dots:['dots','d o t s'],uv:['uv','ultraviolet','fingerprints'],freezing:['freezing','sub zero'],orbs:['orbs','ghost orb'],writing:['ghost writing','writing','wrote in the book'],box:['spirit box','spiritbox']};
 export function parseObservations(text:string):ParsedObservation[]{
+  text=text.replace(/\bd\s*\.\s*o\s*\.\s*t\s*\.\s*s\.?/gi,'dots');
   const normalized=normalize(text);
   const clauses=text.split(/[.,;!\n]|\b(?:but|however|although|except)\b/i).map(raw=>({text:normalize(raw),question:raw.includes('?')}));
   const output:ParsedObservation[]=[];
@@ -69,7 +70,12 @@ export function parseObservations(text:string):ParsedObservation[]{
 export function applySuggestions(session:Session,suggestions:ParsedObservation[]):Session {
   const next={...session,evidence:{...session.evidence},observations:[...session.observations]};
   for(const item of suggestions){
-    if(item.type==='evidence')next.evidence[item.id as Evidence]=item.state??'unknown';
+    if(item.type==='evidence'){
+      const id=item.id as Evidence;
+      if(!EVIDENCE.some(e=>e.id===id))continue;
+      if((item.state??'unknown')==='unknown'&&next.evidence[id]&&next.evidence[id]!=='unknown')continue;
+      next.evidence[id]=item.state??'unknown';
+    }
     else if(!next.observations.includes(item.id))next.observations.push(item.id);
   }
   return next;

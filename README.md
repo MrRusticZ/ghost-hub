@@ -4,13 +4,15 @@ Public site target: https://mrrusticz.github.io/ghost-hub/
 
 Repository: https://github.com/MrRusticZ/ghost-hub
 
-## September 14 release configuration
+## September 14 — Detective and Casebook Preview
 
-The GitHub Pages frontend includes the evidence book, local Ghost Detective, 30 ghost dossiers, 21 equipment references, seven cursed possessions, known-bug references, a 17-location atlas with player-supplied floor images, journal, field tools, voice commands and shareable case links.
+Classic remains the default. Open `#/casebook` for a separate fourteen-chapter preview with bookmarks, Contents, saved chapter state, paper/cloth materials and dark/light themes. Both interfaces use the warmer, deterministic local Detective with remembered follow-ups, selectable evidence proposals and Undo.
 
-Local release checks passed: 38 automated tests, 46 desktop/mobile route checks and 12 additional browser scenarios. GitHub Actions repeats these gates before publishing.
+The current automated corpus contains 211 tests, including 130 labelled utterances and 24 multi-turn conversations. Browser checks cover classic compatibility, connected local-service regressions, Casebook routes, theme/viewport combinations, offline installation and storage failure. See [implementation and verification](docs/casebook-implementation.md) and the generated files under `artifacts/casebook/` for measured results and limits.
 
-**Service status:** public chat, private appeals, community submissions, hosted AI answers and scheduled researched news are not connected in this static-only release. The reviewed news archive is available. No provider credentials or paid services are enabled by default. See `.env.example` and the setup documentation below before enabling a backend or research. Never place secrets in `VITE_` variables.
+**Service status:** the Detective makes no hosted-AI requests. Community features retain their existing optional backend configuration and permissions. The reviewed news archive is available. No hosted service or public deployment is claimed by this local implementation. Never put secrets in `VITE_` variables.
+
+`npm run check` validates tests and build. `npm run test:browser` includes the Casebook checks and requires the local dev, community and production-preview servers described in the implementation report.
 
 ---
 
@@ -18,7 +20,7 @@ Local release checks passed: 38 automated tests, 46 desktop/mobile route checks 
 
 An atmospheric, source-linked Phasmophobia field companion. Evidence and behaviour filtering, a Ghost Detective, ghost dossiers, maps/planning, equipment, guides, news, tools, journal, reviewed voice commands and an optional real community service.
 
-**Status:** built and checked locally. A public GitHub Pages deployment, hosted community backend and paid AI/research configuration are still required for the complete online launch. Nothing here claims that those external services are already live.
+**Status:** built and checked locally. The Detective and investigation tools need no AI provider. Public deployment and optional community/research services have separate release configuration; this local implementation does not establish that those services are live.
 
 ## Use locally
 
@@ -39,7 +41,7 @@ For separate terminals use `npm run dev` and `npm run server`. The core field to
 - Thirty reference ghost dossiers; evidence-count handling, forced evidence, Mimic extras, behaviour support, explanations and next-test guidance.
 - Seventeen map locations/variants with persistent personal planning markers. These are not verified floorplan images.
 - Search, equipment and guide libraries, source-linked launch reports, local journal import/export, timers and BPM tapping.
-- A conservative local Detective and an optional server-grounded AI mode. No fake live AI or invented confidence percentages.
+- A local Detective with contextual follow-ups and reviewed evidence proposals. Both current interfaces run locally and show no invented confidence percentages.
 - Voice/typed command review for evidence, sanity, timers, maps, navigation and snapshots. Browser microphone support varies.
 - Real SQLite-backed guest chat, findings, server authentication, screening, limits, owner moderation and audit.
 - A disabled-by-default scheduled research publisher with source validation and a separate review step.
@@ -69,11 +71,13 @@ In GitHub open **Settings > Secrets and variables > Actions > Variables > New re
 
 Validate real guest delivery, moderation, owner access, retention, backups/restore and the emergency pause before inviting the public. Anonymous guest restrictions are evadable; there is no hardware scan or hardware-ban promise.
 
-## Optional grounded AI
+## Retained backend AI endpoint
+
+The backend endpoint remains compatible for separate integrations. Neither the classic Detective nor Casebook Preview calls it, even when provider settings exist. Enabling it on the server does not switch the current frontend to hosted AI.
 
 Configure `OPENAI_API_KEY`, `OPENAI_MODEL` and `DAILY_AI_REQUEST_LIMIT` on the service host. Choose a model your account can use with structured outputs. The default application limit is 50 Detective requests per UTC day; also configure provider-side spending controls.
 
-The server recomputes candidates and refuses a client/server reference-version mismatch. Without a working AI service the Detective remains a clearly labelled local field guide. No paid provider calls were made during this implementation.
+The server endpoint recomputes candidates and refuses a client/server reference-version mismatch. The current Detective frontend remains a local field companion independently of this endpoint.
 
 ## Automatic news and patch reports
 
@@ -93,7 +97,7 @@ Keep the variable disabled until the first real paid run and failure cases have 
 
 A failed remote load falls back to hosted local data, then to the embedded bundle, with a visible reason. Successful version information is retained for troubleshooting. Current case and journal state survive navigation and refresh, including migration of the old misspelled journal storage key.
 
-The production service worker enables offline reference reuse after a successful first load/cache installation. Chat, live AI and submissions still require a connection. Back up important journal entries through Export; browser storage is not a cloud backup.
+The production service worker enables offline reference reuse after a successful first load/cache installation. Chat and submissions require their configured connection; the Detective runs locally. Back up important journal entries through Export; browser storage is not a cloud backup.
 
 ## Checks and implementation notes
 
@@ -103,7 +107,7 @@ npm run build
 npm run check
 ```
 
-See `VALIDATION.md` for the 30-test result, 35 route/viewport checks, seven recovery/offline checks, five real chat UI checks, evidence artifacts and browser-test commands. The deployment workflow runs browser checks before publishing; its actual hosted run remains unverified until a repository is connected.
+`VALIDATION.md` records the earlier baseline. See [the Casebook implementation report](docs/casebook-implementation.md) for the current tests, browser evidence and limits. The deployment workflow runs browser checks before publishing; local verification does not establish that a hosted release has run.
 
 The active frontend is in `src/hub/`; `src/App.tsx` mounts it. `shared/deduction.mjs` is reused by the browser and server. `server/` contains the authoritative API; `scripts/research*.mjs` contain the gated publisher. Legacy scaffold files are preserved but are not active application components. Old public data is archived outside the deployed directory.
 

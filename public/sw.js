@@ -17,7 +17,7 @@ self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   if(event.request.method !== 'GET' || url.origin !== scope.origin || !url.pathname.startsWith(scope.pathname) || url.pathname.includes('/api/')) return;
   event.respondWith(fetch(event.request).then(response => {
-    if(response.ok && (event.request.mode === 'navigate' || /\.(js|css|woff2|png|svg|json)$/.test(url.pathname))) {
+    if(response.ok && (event.request.mode === 'navigate' || /\.(js|css|woff2|png|webp|avif|svg|json)$/.test(url.pathname))) {
       const copy = response.clone(); event.waitUntil(caches.open(CACHE).then(cache => cache.put(event.request, copy)));
     }
     return response;

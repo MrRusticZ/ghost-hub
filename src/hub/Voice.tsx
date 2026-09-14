@@ -1,3 +1,5 @@
+import {useChapterState} from './chapterState';
+import {useTimer} from './TimerState';
 import { useEffect,useRef,useState } from 'react';
 import { ArrowRight,Check,Mic,MicOff,Radio,ShieldCheck } from 'lucide-react';
 import { Link,route,useHub } from './context';
@@ -8,8 +10,9 @@ import { Notice,PageHeading } from './ui';
 type Recognition={lang:string;continuous:boolean;interimResults:boolean;onresult:((event:{results:ArrayLike<ArrayLike<{transcript:string}>>})=>void)|null;onerror:((event:{error:string})=>void)|null;onend:(()=>void)|null;start:()=>void;stop:()=>void;abort:()=>void};
 type SpeechWindow=Window&{SpeechRecognition?:new()=>Recognition;webkitSpeechRecognition?:new()=>Recognition};
 export function VoicePage(){
+  const timer=useTimer();
   const {session,setSession,snapshots,setSnapshots,notice}=useHub();
-  const [input,setInput]=useState(''),[listening,setListening]=useState(false),[applied,setApplied]=useState(false);
+  const [input,setInput]=useChapterState('VoicePage-input',''),[listening,setListening]=useState(false),[applied,setApplied]=useState(false);
   const recognition=useRef<Recognition|null>(null),timeout=useRef<ReturnType<typeof setTimeout>>();
   const Constructor=(window as SpeechWindow).SpeechRecognition??(window as SpeechWindow).webkitSpeechRecognition;
   const command=parseVoiceCommand(input);
@@ -29,7 +32,7 @@ export function VoicePage(){
     if(command.kind==='sanity')setSession({...session,sanity:command.value});
     if(command.kind==='map')setSession({...session,map:command.id});
     if(command.kind==='snapshot'){if(snapshots.length>=100){notice('Journal full. Export and remove an older case first.');return;}setSnapshots([{id:crypto.randomUUID(),date:new Date().toISOString(),session:structuredClone(session),result:'Unresolved'},...snapshots]);}
-    if(command.kind==='timer'){if(!writeValue('timer',{duration:command.seconds,remaining:command.seconds,endsAt:Date.now()+command.seconds*1000,finished:false})){notice('The timer could not be saved. Use the field tools directly.');return;}route('tools');}
+    if(command.kind==='timer'){timer.start(command.seconds);route('tools');}
     if(command.kind==='navigate')route(command.to);
     setApplied(true);notice(command.label+'.');
   }

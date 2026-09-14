@@ -24,8 +24,8 @@ await page.reload();await page.getByRole('button',{name:'EMF Level 5: found. Cli
 await page.goto('http://127.0.0.1:5173/#/detective');
 await page.getByRole('textbox',{name:'Message the Ghost Detective',exact:true}).fill('It is not stepping in salt');
 await page.getByRole('button',{name:'Send to the Detective',exact:true}).click();
-await page.getByRole('button',{name:'Apply observations',exact:true}).waitFor({timeout:25000});
-await page.getByRole('button',{name:'Apply observations',exact:true}).click();
+await page.getByRole('button',{name:'Add to case',exact:true}).waitFor({timeout:25000});
+await page.getByRole('button',{name:'Add to case',exact:true}).click();
 await page.screenshot({path:'artifacts/detective-desktop.png',fullPage:true});
 await page.goto('http://127.0.0.1:5173/#/journal');
 await page.getByLabel('Investigation name',{exact:true}).fill('Browser checked case');

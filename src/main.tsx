@@ -7,6 +7,8 @@ import "@fontsource/dm-sans/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";
 import "@fontsource/lora/latin-400-italic.css";
 import "./hub/styles.css";
+import "./hub/light-palette.css";
+import "./hub/casebook.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
 
