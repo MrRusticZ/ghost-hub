@@ -6,6 +6,8 @@ const dev='http://127.0.0.1:5173/';
 const manifest=JSON.parse(await readFile('public/data/manifest.json','utf8'));
 const catalog=JSON.parse(await readFile('public/data/hub-catalog.json','utf8'));
 const news=JSON.parse(await readFile('public/data/news.json','utf8'));
+const dossiers=JSON.parse(await readFile('src/hub/ghostDossiers.json','utf8'));
+const journalUrls=new Set(dossiers.flatMap(entry=>entry.emblem?[entry.emblem.url]:[]));
 async function context(){const c=await browser.newContext();c.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));return c;}
 async function seed(c,values){await c.addInitScript(values=>{if(location.origin!=='http://127.0.0.1:5173')return;for(const [key,value] of Object.entries(values))localStorage.setItem(key,value);},values);}
 try{
@@ -44,14 +46,21 @@ try{
   await v.waitForFunction(()=>JSON.parse(localStorage.getItem('ghost-hub:journal')).length===1);
   results.push('Typed voice commands require review and persist applied state');await voice.close();
 
-  const production=await context();const prod=await production.newPage();const base=process.env.PRODUCTION_PREVIEW_URL??'http://127.0.0.1:4173/ghost-hub/';const broken=[];
-  prod.on('response',r=>{if(r.status()>=400)broken.push(r.url());});
+  const production=await context();const prod=await production.newPage();const base=process.env.PRODUCTION_PREVIEW_URL??'http://127.0.0.1:4173/ghost-hub/';const broken=[],unavailableArtwork=new Set();
+  // Exercise the optional external-artwork failure deterministically. Only these
+  // exact credited image URLs are exempt; every other failed response is fatal.
+  await production.route('https://static.wikia.nocookie.net/**',route=>journalUrls.has(route.request().url())?route.fulfill({status:503,body:'Journal host unavailable (test fixture)'}):route.continue());
+  prod.on('response',r=>{if(r.status()>=400){if(journalUrls.has(r.url()))unavailableArtwork.add(r.url());else broken.push(r.url());}});
   await prod.goto(base+'#/evidence',{waitUntil:'networkidle'});await prod.getByRole('heading',{name:'Evidence book',exact:true}).waitFor();
+  await prod.locator('.dossier-emblem img').evaluateAll(images=>images.forEach(image=>image.loading='eager'));
+  await prod.waitForFunction(()=>document.querySelectorAll('.ghost-card .dossier-emblem[data-artwork=unavailable]').length===30);
+  if(unavailableArtwork.size!==journalUrls.size)throw Error('Not every journal image failure was exercised');
+  if(await prod.locator('.dossier-emblem[title="Journal artwork could not load"]').count()!==journalUrls.size)throw Error('Failed journal images lack their honest fallback');
   await prod.waitForFunction(()=>!!navigator.serviceWorker.controller,{timeout:20000});
   await production.setOffline(true);await prod.reload({waitUntil:'domcontentloaded'});await prod.getByRole('heading',{name:'Evidence book',exact:true}).waitFor();
   if(await prod.locator('.ghost-card').count()!==30)throw Error('Offline evidence catalog did not render');
   if(broken.length)throw Error('Production resources failed: '+broken.join(', '));
-  results.push('GitHub-style subdirectory loads directly and reloads offline after cache installation');await production.close();
-  await writeFile('artifacts/extended-browser-results.json',JSON.stringify({results,errors},null,2));
+  results.push('GitHub-style subdirectory loads directly and reloads offline after cache installation; all 24 external journal failures show fallbacks while first-party resources remain required');await production.close();
+  await writeFile('artifacts/extended-browser-results.json',JSON.stringify({results,errors,unavailableArtwork:[...unavailableArtwork]},null,2));
   console.log(JSON.stringify({passed:results.length,results,errors}));if(errors.length)process.exitCode=1;
 }finally{await browser.close();}

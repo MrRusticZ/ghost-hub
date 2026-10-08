@@ -6,6 +6,8 @@ The recorded-footstep, journal-artwork and match-workflow changes below are prep
 
 Release scope: twelve original footstep recordings/six surfaces, shared journal emblems, Evidence timer/notes, investigation shortcuts and mobile navigation fixes. Existing unrelated prototypes and local documentation are excluded. Audio attribution and the source-specific rights limitations remain documented in ASSETS.md; publication is not a claim of publisher endorsement or a new media licence.
 
+Release gate correction: the first GitHub run stopped when the optional wiki image host returned errors. The extended browser check now deliberately fails the exact twenty-four credited journal-image URLs and requires every unavailable-artwork fallback, while preserving fatal checks for all other failed resources. This tests the existing outage behavior without making publisher availability a prerequisite for validating the application's own offline assets.
+
 ## 2026-10-09 - Real recorded footsteps and journal artwork
 
 State: implemented and validated locally; uncommitted, not publicly deployed. Base revision remains `8eb1fd9`.
