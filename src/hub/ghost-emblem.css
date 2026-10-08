@@ -1,0 +1,3 @@
+.dossier-emblem{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;background:#101111;color:#d6c59f;border:1px solid #3b403c;overflow:hidden;font-variant-numeric:tabular-nums}
+.dossier-emblem img{display:block;width:100%;height:100%;object-fit:contain}.dossier-emblem.large{width:112px;height:112px;font-size:2.5rem;border:none}.ency-name .dossier-emblem{margin-right:8px}
+.dossier-emblem[data-artwork=unavailable]{border-style:dashed;color:#b7b6ac}

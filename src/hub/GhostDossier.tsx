@@ -4,14 +4,8 @@ import {Link,useHub} from './context';
 import {type Ghost} from './model';
 import {EvidenceTags,SourceLink} from './ui';
 import {dossierFor,videoUrl,type Dossier,type DossierMedia} from './ghostDossiers';
+import {GhostEmblem} from './GhostEmblem';
 import './ghost-dossier.css';
-
-export function GhostEmblem({id,large=false}:{id:string;large?:boolean}){
-  const entry=dossierFor(id);
-  const [failed,setFailed]=useState(false);
-  useEffect(()=>setFailed(false),[id]);
-  return <span className={'dossier-emblem'+(large?' large':'')} aria-hidden="true">{entry?.emblem&&!failed?<img src={entry.emblem.url} alt="" width="256" height="256" loading={large?'eager':'lazy'} decoding="async" onError={()=>setFailed(true)}/>:<span>{String(entry?.number??'—').padStart(2,'0')}</span>}</span>;
-}
 
 function MediaStage({media,entry,onPlay,audioActive}:{media:DossierMedia;entry:Dossier;onPlay:()=>void;audioActive:boolean}){
   const [playing,setPlaying]=useState(false);
@@ -62,6 +56,6 @@ export function GhostDossier({ghost,onPlay,audioActive}:{ghost:Ghost;onPlay:()=>
       {entry.media.length>1&&<div className="dossier-gallery" role="group" aria-label="Media references">{entry.media.map((item,index)=><button key={item.source} aria-pressed={selected===index} onClick={()=>{onPlay();setSelected(index);}}><span>{String(index+1).padStart(2,'0')}</span>{item.title}<span>{item.kind==='image'?'STILL':item.kind==='animation'?'MOTION':'VIDEO'}</span></button>)}</div>}
     </div><aside className="dossier-notes" aria-label="Identification notes"><div className="dossier-note-tabs" role="group" aria-label="Field notes view"><button aria-pressed={!test} onClick={()=>setTest(false)}>What to notice</button><button aria-pressed={test} onClick={()=>setTest(true)}>How to test</button></div><span className="eyebrow">{test?'IN THE FIELD':'READ THE OBSERVATION'}</span><h2>{entry.focus}</h2><ol className="dossier-observations">{(test?entry.steps:entry.facts).map((item,index)=><li key={item}><span>{String(index+1).padStart(2,'0')}</span><p>{item}</p></li>)}</ol><div className="dossier-limit"><strong>Before you conclude</strong><p>{ghost.caution}</p>{ghost.id!=='mimic'&&<p>Behaviour may be imitated by The Mimic where its own evidence permits. Cross-check the evidence.</p>}</div><SourceLink url={entry.source}>Current behaviour reference</SourceLink></aside></div>
     <div className="dossier-related"><span>Compare the clues</span>{entry.related.map(id=>{const other=catalog.ghosts.find(g=>g.id===id);return other?<Link key={id} to={'ghosts/'+id}>{other.name}<ArrowRight size={14}/></Link>:null;})}<Link to="evidence">Open your evidence book<ArrowRight size={14}/></Link></div>
-    {entry.emblem&&<details className="dossier-credits"><summary>Journal artwork credit</summary><p>{entry.emblem.credit}. Journal artwork is an identifier, not a unique ghost model. <SourceLink url={entry.emblem.source}>Original file and attribution</SourceLink></p></details>}
+    {entry.emblem?<details className="dossier-credits"><summary>Journal artwork credit</summary><p>{entry.emblem.credit}. Journal artwork is an identifier, not a unique ghost model. <SourceLink url={entry.emblem.source}>Original file and attribution</SourceLink></p></details>:<p className="dossier-credits">Official journal artwork unavailable for {ghost.name}. <SourceLink url={entry.source}>Game reference</SourceLink></p>}
   </section>;
 }

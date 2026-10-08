@@ -1,5 +1,13 @@
 # Ghost Hub assets and source policy
 
+## Recorded footsteps (9 October 2026, local implementation)
+
+The current local build includes 12 unmodified Phasmophobia footstep recordings (120,179 bytes) in `src/hub/assets/ghost-reference/`. The player offers Standard, Wood, Carpet, Gravel, Asphalt and Metal stairs; alternate recordings retain their original pitch. `src/hub/ghost-reference-media.json` records the exact source URLs, source-code revision that references them, retrieval dates, byte counts and SHA-256 hashes. Audio is fetched from Ghost Hub's own build assets, including after offline installation; no live audio hotlink or synthesized fallback is used.
+
+Game audio belongs to Kinetic Games. The samples were retrieved from [Ty Bayn / Zero-Network's reference](https://zero-network.net/phasmo-cheat-sheet/). That project's software licence does not license the game recordings, and its publisher permission does not establish permission for Ghost Hub. This task updated the local source and preview only. Public redistribution permission remains unresolved under [Kinetic's Gaming Content Guidelines](https://www.kineticgames.co.uk/gaming-content-guidelines); no public audio release was performed. See [implementation and validation](docs/real-footsteps-2026-10-09.md).
+
+Ghost candidate cards now share the existing 24 credited original-host journal emblems with the encyclopedia. Aswang, Dayan, Deildegast, Gallu, Kormos and Obambo still have no verified journal emblem in the reviewed sources; missing artwork is explicitly labelled. Generic interface/evidence symbols remain Lucide controls rather than being presented as extracted game art.
+
 ## Equipment reference images (15 September 2026)
 
 The equipment library bundles 64 credited WebP references: all 63 equipment tiers and an equipment-wall overview. `src/hub/equipment-media.json` records source pages, original and delivered URLs, uploader, upload date, dimensions, byte counts and SHA-256 hashes. These unmodified game-reference images total 1,453,832 bytes and are served locally for reliable loading and offline availability.
@@ -28,7 +36,7 @@ The interface uses Barlow Condensed, DM Sans and Lora, bundled locally through F
 
 ## Game reference material
 
-The encyclopaedia uses credited, original-host journal emblems, evidence images, gameplay animations and creator video embeds. The complete media URLs, creators, dates and captions are in `src/hub/ghostDossiers.json`; the review and usage details are in [the media release record](docs/encyclopaedia-media-release.md). These third-party assets are not included in Ghost Hub's source-code licensing, and no raw game audio is published.
+The encyclopaedia uses credited, original-host journal emblems, evidence images, gameplay animations and creator video embeds. The complete media URLs, creators, dates and captions are in `src/hub/ghostDossiers.json`; the review and usage details are in [the media release record](docs/encyclopaedia-media-release.md). These third-party assets are not included in Ghost Hub's source-code licensing. The current local audio implementation and its separate publication status are described above.
 
 Phasmophobia belongs to Kinetic Games. Ghost Hub is unofficial and independent. Guides and summaries use original wording and link to source material. External wiki/Reddit discussions remain on their original platforms; complete posts and articles have not been copied into this project. The creator-attributed map reference sheets used by the atlas are documented below.
 

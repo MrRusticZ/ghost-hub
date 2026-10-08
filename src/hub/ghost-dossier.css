@@ -2,8 +2,6 @@
 .dossier-heading{display:flex;justify-content:space-between;gap:28px;align-items:center;padding:20px 0 26px;border-bottom:1px solid var(--line)}
 .dossier-heading>div{min-width:0}.dossier-heading h1{font-family:'DM Sans',sans-serif;font-size:clamp(2.7rem,5.2vw,4.5rem);font-weight:500;letter-spacing:-.055em;line-height:1.08;margin:16px 0}
 .dossier-heading p{max-width:700px;line-height:1.7;color:var(--muted);margin-bottom:20px}
-.dossier-emblem{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;background:#101111;color:#d6c59f;border:1px solid #3b403c;overflow:hidden;font-variant-numeric:tabular-nums}
-.dossier-emblem img{display:block;width:100%;height:100%;object-fit:contain}.dossier-emblem.large{width:112px;height:112px;font-size:2.5rem;border:none}.ency-name .dossier-emblem{margin-right:8px}
 .dossier-revision{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 0 22px;color:var(--muted);font-size:.8rem}
 .dossier-revision .source-link{margin:0;font-size:.8rem}
 .dossier-review{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(285px,1fr);border:1px solid var(--line);border-radius:5px;overflow:hidden}

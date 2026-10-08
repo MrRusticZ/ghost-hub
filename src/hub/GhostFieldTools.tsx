@@ -2,35 +2,38 @@ import {useEffect,useRef,useState} from 'react';
 import {Flame,Pause,Play,RotateCcw,Square,Timer,Volume2} from 'lucide-react';
 import {Link,useHub} from './context';
 import {useTimer} from './TimerState';
-import {FootstepAudio,LOCAL_FOOTSTEP_SAMPLE_URL} from './footstepAudio';
+import {FootstepAudio} from './footstepAudio';
+import {FOOTSTEP_SURFACES,type FootstepSurface} from './footstepSamples';
 import {effectiveSpeed,GHOST_MECHANICS,huntDuration,mechanicsFor,rhythmBpm,speedLabel,type GhostMechanics,type MatchSettings} from './ghostMechanics';
 
 export function useFootsteps(){
   const {notice}=useHub();
   const engine=useRef<FootstepAudio|null>(null),request=useRef(0);
   const [active,setActive]=useState<string|null>(null),[volume,setVolume]=useState(35);
-  function stop(){request.current++;engine.current?.stop();setActive(null);}
+  const [loading,setLoading]=useState<string|null>(null),[surface,setSurface]=useState<FootstepSurface>('standard');
+  function stop(){request.current++;engine.current?.stop();setActive(null);setLoading(null);}
   async function play(key:string,speed:number){
     if(active===key){stop();return;}
     const current=++request.current;
     try{
-      engine.current??=new FootstepAudio();engine.current.setVolume(volume/100);setActive(key);
-      const started=await engine.current.play(speed,()=>{if(current===request.current)setActive(null);});
-      if(!started&&current===request.current)setActive(null);
-    }catch(error){if(current===request.current){engine.current?.stop();setActive(null);notice(error instanceof Error?error.message:'Footstep audio is unavailable. Speed and timing references remain available.');}}
+      engine.current??=new FootstepAudio();engine.current.setVolume(volume/100);setActive(key);setLoading(key);
+      const started=await engine.current.play(speed,()=>{if(current===request.current)setActive(null);},surface);
+      if(current===request.current){setLoading(null);if(!started)setActive(null);}
+    }catch(error){if(current===request.current){engine.current?.stop();setActive(null);setLoading(null);notice(error instanceof Error?error.message:'Footstep audio is unavailable. Speed and timing references remain available.');}}
   }
   useEffect(()=>{
-    const hide=()=>{if(document.hidden){request.current++;engine.current?.stop();setActive(null);}};
+    const hide=()=>{if(document.hidden){request.current++;engine.current?.stop();setActive(null);setLoading(null);}};
     document.addEventListener('visibilitychange',hide);
     return()=>{document.removeEventListener('visibilitychange',hide);request.current++;engine.current?.dispose();engine.current=null;};
   },[]);
   function changeVolume(value:number){setVolume(value);engine.current?.setVolume(value/100);}
-  return {active,play,stop,volume,changeVolume,recorded:Boolean(LOCAL_FOOTSTEP_SAMPLE_URL)};
+  function changeSurface(value:FootstepSurface){stop();setSurface(value);}
+  return {active,loading,play,stop,volume,changeVolume,surface,changeSurface};
 }
 export type Footsteps=ReturnType<typeof useFootsteps>;
 
 export function SoundControls({audio}:{audio:Footsteps}){
-  return <div className="ency-audio-settings"><Volume2 size={16} aria-hidden="true"/><label>Volume<input type="range" min="0" max="100" step="5" value={audio.volume} onChange={e=>audio.changeVolume(Number(e.target.value))}/></label><span>{audio.volume}%</span><button className="button" disabled={!audio.active} onClick={audio.stop}><Square size={14}/>Stop audio</button></div>;
+  return <div className="ency-audio-settings"><label className="ency-surface">Floor surface<select aria-label="Floor surface" value={audio.surface} onChange={e=>audio.changeSurface(e.target.value as FootstepSurface)}>{FOOTSTEP_SURFACES.map(item=><option key={item.id} value={item.id}>{item.label}</option>)}</select></label><Volume2 size={16} aria-hidden="true"/><label>Volume<input type="range" min="0" max="100" step="5" value={audio.volume} onChange={e=>audio.changeVolume(Number(e.target.value))}/></label><span>{audio.volume}%</span><button className="button" disabled={!audio.active} onClick={audio.stop}><Square size={14}/>Stop audio</button></div>;
 }
 export function MatchControls({settings,onChange}:{settings:MatchSettings;onChange:(s:MatchSettings)=>void}){
   return <details className="ency-settings"><summary>Match settings <span>{settings.speed}% speed · {settings.size} map · {settings.duration} hunts{settings.cursed?' · cursed extension':''}{settings.bloodMoon?' · Blood Moon':''}</span></summary><div className="ency-settings-grid">
@@ -52,7 +55,7 @@ export function FootstepPlayer({profile,name,audio,settings,instance='entry'}:{p
   return <div className="ency-player" data-ghost-player={profile.id}>
     {profile.id==='mimic'&&<label className="ency-imitation">Imitated ghost<select aria-label={name+' imitated ghost'} value={imitation} onChange={e=>{audio.stop();setImitation(e.target.value);setPace('');setChase(false);}}>{GHOST_MECHANICS.filter(p=>p.id!=='mimic').map(p=><option key={p.id} value={p.id}>{p.id==='twins'?'The Twins':p.id.charAt(0).toUpperCase()+p.id.slice(1)}</option>)}</select></label>}
     <label className="ency-condition">Footstep condition<select aria-label={name+' footstep condition'} value={pace.id} onChange={e=>changePace(e.target.value)}>{target.pace.map(p=><option value={p.id} key={p.id}>{p.label}</option>)}</select></label>
-    <div className="ency-player-line"><button className={'button ency-play '+(audio.active===key?'playing':'')} aria-label={(audio.active===key?'Stop footsteps for ':'Play footsteps for ')+name} aria-pressed={audio.active===key} onClick={()=>void audio.play(key,speed)}>{audio.active===key?<Square size={16}/>:<Play size={16}/>}<span>{audio.active===key?'Stop':'Listen'}</span></button><div className="ency-pace-value"><strong>{speedLabel(speed)} <span>m/s</span></strong><small>≈{Math.round(rhythmBpm(speed))} BPM · {audio.recorded?'game sample':'simulation'}</small></div></div>
+    <div className="ency-player-line"><button className={'button ency-play '+(audio.active===key?'playing':'')} aria-label={(audio.active===key?'Stop footsteps for ':'Play footsteps for ')+name} aria-pressed={audio.active===key} aria-busy={audio.loading===key} onClick={()=>void audio.play(key,speed)}>{audio.active===key?<Square size={16}/>:<Play size={16}/>}<span>{audio.loading===key?'Loading…':audio.active===key?'Stop':'Listen'}</span></button><div className="ency-pace-value"><strong>{speedLabel(speed)} <span>m/s</span></strong><small>≈{Math.round(rhythmBpm(speed))} BPM · game recording</small></div></div>
     {pace.maxSpeed&&<label className="ency-checkbox ency-chase"><input type="checkbox" checked={chase} onChange={e=>{audio.stop();setChase(e.target.checked);}}/>At full chase acceleration</label>}
     <p className="ency-listening-note">{profile.listening}</p>
   </div>;

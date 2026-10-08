@@ -9,7 +9,8 @@ import {readValue,writeValue} from './storage';
 import {DEFAULT_MATCH,HUNT_SOURCE,INCENSE_SOURCE,MECHANICS_REVIEWED,MatchSettingsSchema,RHYTHM_SOURCE,mechanicsFor,paceRange,type GhostMechanics} from './ghostMechanics';
 import {ActiveFieldTimer,FootstepPlayer,GhostTiming,MatchControls,SoundControls,useFootsteps} from './GhostFieldTools';
 import './encyclopedia.css';
-import {GhostDossier,GhostEmblem} from './GhostDossier';
+import {GhostDossier} from './GhostDossier';
+import {GhostEmblem} from './GhostEmblem';
 
 const ViewSchema=z.enum(['cards','list','comparison']);
 type View=z.infer<typeof ViewSchema>;
@@ -47,7 +48,7 @@ export function GhostLibrary({id}:{id?:string}){
   }
   function compareCheck(g:Ghost){return <label className="ency-checkbox ency-compare"><input type="checkbox" aria-label={'Compare '+g.name} checked={selectedIds.includes(g.id)} disabled={selectedIds.length>=3&&!selectedIds.includes(g.id)} onChange={()=>toggleCompare(g.id)}/>Compare{view==='list'?' '+g.name:''}</label>;}
   const matchControls=<MatchControls settings={settings} onChange={value=>{audio.stop();setSettings(value);}}/>;
-  const soundNote=<details className="ency-sound-note"><summary><Footprints size={16}/>Footstep audio <span>{audio.recorded?'Recorded game footsteps':'Synthetic footsteps'} · 12-second previews</span></summary><SoundControls audio={audio}/><p>{audio.recorded?'The original Phasmophobia footstep sample is repeated at the selected approximate rhythm, preserving its pitch. The sound is shared across ghost types; their speed and conditions change the cadence.':'These examples use an approximate community cadence model and an original synthesized impact sound.'} Surface sounds, turning, frame rate and chase acceleration affect what you hear in game. <SourceLink url={RHYTHM_SOURCE}>Rhythm reference</SourceLink></p>{audio.recorded&&<p className="small muted">Game audio: Kinetic Games. Sample reference: <SourceLink url="https://github.com/tybayn/phasmo-cheat-sheet">Ty Bayn / Zero-Network</SourceLink></p>}</details>;
+  const soundNote=<section className="ency-sound-note" aria-label="Footstep audio"><div className="ency-sound-heading"><Footprints size={16}/>Real game footsteps <span>12-second previews</span></div><SoundControls audio={audio}/><details className="ency-sound-about"><summary>About these recordings</summary><p>Original Phasmophobia footstep recordings, with floor-surface variations and unchanged pitch. Ghost speed changes the approximate rhythm; these are shared footstep sounds, not a separate recording of every ghost. Turning, surface transitions and chase acceleration affect what you hear in game. <SourceLink url={RHYTHM_SOURCE}>Rhythm reference</SourceLink></p><p>Game audio: Kinetic Games. Sample reference: <SourceLink url="https://zero-network.net/phasmo-cheat-sheet/">Ty Bayn / Zero-Network</SourceLink></p></details></section>;
   if(id&&!ghost)return <><Link className="back-link" to="ghosts"><ArrowLeft size={15}/>Ghost encyclopaedia</Link><Empty title="Ghost not found">Choose a ghost from the encyclopedia.</Empty></>;
   if(ghost){
     const profile=mechanicsFor(ghost.id);

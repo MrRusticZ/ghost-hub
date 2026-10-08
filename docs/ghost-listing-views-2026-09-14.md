@@ -1,5 +1,7 @@
 # Ghost encyclopedia listing views and field references
 
+Historical implementation record. Its synthesized-audio description is superseded by [the 9 October recorded-footstep implementation](real-footsteps-2026-10-09.md).
+
 Implemented locally on 14 September 2026. No commit, push, or GitHub Pages deployment was performed for this change.
 
 ## Delivered behaviour

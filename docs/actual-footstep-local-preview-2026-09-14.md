@@ -1,5 +1,7 @@
 # Actual Phasmophobia footstep: local preview
 
+Historical record. The development-only switch and synthesized production player were replaced on 9 October 2026. See [current implementation and publication status](real-footsteps-2026-10-09.md).
+
 The user requested the actual game sound after reviewing the synthesized encyclopedia player. The local preview now uses the game footstep sample referenced by Ty Bayn / Zero-Network's Unofficial Phasmophobia Cheat Sheet. Each ghost retains its own speed conditions; the sound is shared, and only the interval between steps changes. Playback preserves the sample's original pitch.
 
 - Source: https://zero-network.net/phasmophobia/static/assets/footstep.mp3
